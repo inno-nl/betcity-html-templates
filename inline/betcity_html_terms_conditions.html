@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BetCity Oryx Widgets</title>
+    <link rel="stylesheet" href="https://www.betcity.nl/styles/betcity.css" />
+    <!-- Use fonts from public folder, BetCity has CORS protection -->
+    <style>
+      @font-face {
+        font-family: Soehne;
+        font-style: normal;
+        font-weight: normal;
+        src: local(''), url(/fonts/soehne-web-buch.woff2) format('woff2'),
+          url(/fonts/soehne-web-buch.woff) format('woff');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Soehne;
+        font-style: normal;
+        font-weight: 600;
+        src: local(''), url(/fonts/soehne-web-halbfett.woff2) format('woff2');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: SoehneSchmal;
+        font-style: normal;
+        font-weight: 700;
+        src: local(''),
+          url(/fonts/soehne-schmal-web-dreiviertelfett.woff2) format('woff2'),
+          url(/fonts/soehne-schmal-web-dreiviertelfett.woff) format('woff');
+        font-display: swap;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-wrapper">
+        <div class="hamburger">
+          <button
+            aria-label="Open main navigation"
+            type="button"
+            class="hamburger__trigger"
+          ></button>
+          <ul class="hamburger-menu">
+            <li>
+              <button
+                aria-label="Close main navigation"
+                type="button"
+                class="hamburger__close"
+              ></button>
+            </li>
+            <li
+              class="hamburger__separator hamburger__separator-sm hamburger__separator--logged-out"
+            ></li>
+            <li>
+              <nav aria-label="Main">
+                <ul class="mobile-navigation nav">
+                  <li class="depth-1 is-parent-active menu-section nav__item">
+                    <div class="nav__section-label">
+                      <span title="Menu" class="nav__title">Menu</span>
+                    </div>
+                    <ul class="nav__items">
+                      <li class="depth-2 nav__item">
+                        <a
+                          href="https://www.betcity.nl/sportsbook"
+                          class="nav__link"
+                          ><span title="Sportsbook" class="nav__title"
+                            >Sportsbook</span
+                          ></a
+                        >
+                      </li>
+                      <li class="depth-2 nav__item">
+                        <a
+                          href="https://www.betcity.nl/casino"
+                          class="nav__link"
+                          ><span title="Casino" class="nav__title"
+                            >Casino</span
+                          ></a
+                        >
+                      </li>
+                      <li class="depth-2 nav__item">
+                        <a
+                          href="https://www.betcity.nl/live-casino"
+                          class="nav__link"
+                          ><span title="Live Casino" class="nav__title"
+                            >Live Casino</span
+                          ></a
+                        >
+                      </li>
+                      <li class="depth-2 nav__item">
+                        <a
+                          href="https://www.betcity.nl/promoties"
+                          class="nav__link"
+                          ><span title="Promoties" class="nav__title"
+                            >Promoties</span
+                          ></a
+                        >
+                      </li>
+                      <li class="depth-2 nav__item">
+                        <a
+                          href="https://www.betcity.nl/speel-slimmer"
+                          class="nav__link"
+                          ><span title="Speel Slimmer" class="nav__title"
+                            >Speel Slimmer</span
+                          ></a
+                        >
+                      </li>
+                      <li class="depth-2 nav__item">
+                        <a
+                          href="https://help.betcity.nl/hc/nl"
+                          target="_blank"
+                          class="nav__link"
+                          ><span title="Klantenservice" class="nav__title"
+                            >Klantenservice</span
+                          ></a
+                        >
+                      </li>
+                      <li is-selected="" class="depth-2 is-active nav__item">
+                        <a
+                          href="https://www.betcity.nl/algemene-voorwaarden"
+                          class="nav__link"
+                          ><span title="Algemene Voorwaarden" class="nav__title"
+                            >Algemene Voorwaarden</span
+                          ></a
+                        >
+                      </li>
+                      <li class="depth-2 nav__item">
+                        <a
+                          href="https://www.betcity.nl/bonus-voorwaarden"
+                          class="nav__link"
+                          ><span title="Bonus voorwaarden" class="nav__title"
+                            >Bonus voorwaarden</span
+                          ></a
+                        >
+                      </li>
+                      <li class="depth-2 nav__item">
+                        <a
+                          href="https://www.betcity.nl/cookies"
+                          class="nav__link"
+                          ><span title="Cookiestatement" class="nav__title"
+                            >Cookiestatement</span
+                          ></a
+                        >
+                      </li>
+                      <li class="depth-2 nav__item">
+                        <a
+                          href="https://www.betcity.nl/privacyverklaring"
+                          class="nav__link"
+                          ><span title="Privacystatement" class="nav__title"
+                            >Privacystatement</span
+                          ></a
+                        >
+                      </li>
+                      <li class="depth-2 nav__item">
+                        <a
+                          href="https://www.betcity.nl/complaint"
+                          class="nav__link"
+                          ><span title="Klachtenregeling" class="nav__title"
+                            >Klachtenregeling</span
+                          ></a
+                        >
+                      </li>
+                      <li class="depth-2 nav__item">
+                        <a
+                          href="https://www.betcity.nl/verantwoord-spelen"
+                          class="nav__link"
+                          ><span title="Verantwoord Spelen" class="nav__title"
+                            >Verantwoord Spelen</span
+                          ></a
+                        >
+                      </li>
+                      <li class="depth-2 nav__item">
+                        <a href="https://help.betcity.nl/" class="nav__link"
+                          ><span title="FAQ" class="nav__title">FAQ</span></a
+                        >
+                      </li>
+                      <li class="depth-2 nav__item">
+                        <a
+                          href="https://www.betcity.nl/contact-us"
+                          class="nav__link"
+                          ><span title="Contact" class="nav__title"
+                            >Contact</span
+                          ></a
+                        >
+                      </li>
+                      <li class="depth-2 nav__item">
+                        <a
+                          href="https://www.betcity.nl/over-ons"
+                          class="nav__link"
+                          ><span title="Over Ons" class="nav__title"
+                            >Over Ons</span
+                          ></a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </li>
+            <li class="hamburger__separator"></li>
+            <li class="depth-2 nav__item">
+              <a class="nav__link"
+                ><span class="nav__title nav__title--primary-color"
+                  >Log in</span
+                ></a
+              >
+            </li>
+            <li class="depth-2 nav__item">
+              <a href="https://www.betcity.nl/registration" class="nav__link"
+                ><span
+                  class="font-weight-bold nav__title nav__title--primary-color"
+                  >Registratie</span
+                ></a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="logo-container">
+          <a aria-label="Home" href="https://www.betcity.nl"
+            ><img
+              alt=""
+              src="//www.betcity.nl/media/2021-09/logotest.svg"
+              class="logo__img logo__img--primary" />
+            <img
+              alt="BetCity logo"
+              src="//www.betcity.nl/media/2021-09/bet-city-nl-logo.svg"
+              title="BetCity logo"
+              class="logo__img logo__img--secondary"
+          /></a>
+        </div>
+        <div class="main-navigation-container mr-auto">
+          <ul class="main-navigation nav">
+            <li class="depth-1 nav__item nav__item--theme-cyan">
+              <a href="https://www.betcity.nl/sportsbook" class="nav__link"
+                ><span title="SPORTSBOOK" class="nav__title"
+                  >SPORTSBOOK</span
+                ></a
+              >
+            </li>
+            <li class="depth-1 nav__item nav__item--theme-purple">
+              <a href="https://www.betcity.nl/casino" class="nav__link"
+                ><span title="CASINO" class="nav__title">CASINO</span></a
+              >
+            </li>
+            <li class="depth-1 nav__item nav__item--theme-purple">
+              <a href="https://www.betcity.nl/live-casino" class="nav__link"
+                ><span title="LIVE CASINO" class="nav__title"
+                  >LIVE CASINO</span
+                ></a
+              >
+            </li>
+            <li class="depth-1 nav__item">
+              <a href="https://www.betcity.nl/promoties" class="nav__link"
+                ><span title="PROMOTIES" class="nav__title">PROMOTIES</span></a
+              >
+            </li>
+            <li class="depth-1 nav__item">
+              <a href="https://www.betcity.nl/speel-slimmer" class="nav__link"
+                ><span title="SPEEL SLIMMER" class="nav__title"
+                  >SPEEL SLIMMER</span
+                ></a
+              >
+            </li>
+            <li class="depth-1 nav__item">
+              <a
+                href="https://www.betcity.nl/verantwoord-spelen"
+                class="nav__link"
+                ><span title="VERANTWOORD SPELEN" class="nav__title"
+                  >VERANTWOORD SPELEN</span
+                ></a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="header-actions-container">
+          <div class="header-actions">
+            <button
+              aria-label="Live chat"
+              type="button"
+              class="chat-open-button"
+            >
+              <img
+                alt="chat-icon"
+                src="https://www.betcity.nl/static/betcity/images/chat-icon.svg"
+                class="chat-open-button__icon"
+              />
+            </button>
+          </div>
+          <div class="header-actions">
+            <a
+              href="https://www.betcity.nl/registration"
+              class="btn btn--primary btn--sm header-actions__button"
+              >Registreer</a
+            >
+            <button
+              type="button"
+              class="btn btn--sm btn--tertiary header-actions__button"
+            >
+              Log in
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="sub-header">
+        <a
+          href="https://www.betcity.nl/registration"
+          class="btn btn--primary btn--sm sub-header__button"
+          >Registreer</a
+        >
+        <button class="btn btn--sm btn--tertiary sub-header__button">
+          Log in
+        </button>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="row" style="padding: 0px; --gutterX: 1.25rem">
+        <div
+          class="background background--fullwidth"
+          style="
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-color: rgb(246, 248, 248);
+          "
+        ></div>
+        <div class="col col-12">
+          <div
+            class="h-100 radius-small"
+            style="
+              padding: 0px 20px;
+              background-color: rgb(255, 255, 255);
+              background-size: auto;
+              background-repeat: repeat;
+              background-position: center top;
+            "
+          >
+            <!-- HTML Terms & Conditions -->
+            <section style="margin: 40px 0 0">
+              <div class="fine-print fine-print--tc">
+                <div style="color: #000">
+                  <p class="is-2 p1">Versie: 07-04-2022</p>
+                  <p class="is-2 p1">&nbsp;</p>
+                  <p class="is-2 p1">&nbsp;</p>
+                  <div id="inhoudsopgave">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Inhoudsopgave</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1&nbsp;&nbsp;<a href="#definities">Definities</a>
+                    </p>
+                    <p class="is-2 p1">
+                      2&nbsp;&nbsp;<a href="#toepasselijkheid"
+                        >Toepasselijkheid</a
+                      >
+                    </p>
+                    <p class="is-2 p1">
+                      3&nbsp;&nbsp;<a href="#inschrijving">Inschrijving</a>
+                    </p>
+                    <p class="is-2 p1">
+                      4&nbsp;&nbsp;<a href="#aanmelding">Aanmelding</a>
+                    </p>
+                    <p class="is-2 p1">
+                      5&nbsp;&nbsp;<a href="#schorsing">Schorsing</a>
+                    </p>
+                    <p class="is-2 p1">
+                      6&nbsp;&nbsp;<a href="#beeindiging">Beëindiging</a>
+                    </p>
+                    <p class="is-2 p1">
+                      7&nbsp;&nbsp;<a href="#beheer-spelersaccount"
+                        >Beheer van het Spelersaccount</a
+                      >
+                    </p>
+                    <p class="is-2 p1">
+                      8&nbsp;&nbsp;<a href="#betalingstransacties"
+                        >Betalingstransacties</a
+                      >
+                    </p>
+                    <p class="is-2 p1">
+                      9&nbsp;&nbsp;<a href="#kosten">Kosten</a>
+                    </p>
+                    <p class="is-2 p1">
+                      10&nbsp;&nbsp;<a href="#privacy">Privacy</a>
+                    </p>
+                    <p class="is-2 p1">
+                      11&nbsp;&nbsp;<a href="#klantendienst">Klantendienst</a>
+                    </p>
+                    <p class="is-2 p1">
+                      12&nbsp;&nbsp;<a href="#klachtenprocedure"
+                        >Klachtenprocedure</a
+                      >
+                    </p>
+                    <p class="is-2 p1">
+                      13&nbsp;&nbsp;<a href="verantwoord-spelen"
+                        >Verantwoord spelen</a
+                      >
+                    </p>
+                    <p class="is-2 p1">
+                      14&nbsp;&nbsp;<a href="#intellectuele-eigendom"
+                        >Intellectuele eigendom</a
+                      >
+                    </p>
+                    <p class="is-2 p1">
+                      15&nbsp;&nbsp;<a href="#spelonderbrekingen"
+                        >Spelonderbrekingen</a
+                      >
+                    </p>
+                    <p class="is-2 p1">
+                      16&nbsp;&nbsp;<a href="#aansprakelijkheid"
+                        >Aansprakelijkheid</a
+                      >
+                    </p>
+                    <p class="is-2 p1">
+                      17&nbsp;&nbsp;<a href="#overig">Overig</a>
+                    </p>
+                    <p class="is-2 p1">
+                      18&nbsp;&nbsp;<a href="#recht"
+                        >Toepasselijk recht en bevoegde rechter</a
+                      >
+                    </p>
+                    <p class="is-2 p1">
+                      19&nbsp;&nbsp;<a href="#weddenschapreglementen"
+                        >Weddenschapsreglementen</a
+                      >
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+
+                  <div id="definities">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 1. Definities</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.1&nbsp;&nbsp;<strong>Algemene voorwaarden:</strong> deze
+                      algemene voorwaarden.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.2&nbsp;&nbsp;<strong>Betent:</strong> de handelsnaam van
+                      Betent B.V., statutair gevestigd en kantoorhoudende aan
+                      Ceintuurbaan 286-H, 1072 GK te Amsterdam, ingeschreven in
+                      het handelsregister van de Kamer van Koophandel onder
+                      nummer 82283141 en aanbieder van krachtens de Vergunning
+                      vergunde kansspelen.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.3&nbsp;&nbsp;<strong>BSN:</strong> Burgerservicenummer.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.4&nbsp;&nbsp;<strong>Cruks:</strong> Centraal register
+                      uitsluiting kansspelen.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.5&nbsp;&nbsp;<strong>Diensten:</strong> de door Betent
+                      aangeboden kansspelen krachtens Vergunning op het
+                      Platform.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.6&nbsp;&nbsp;<strong
+                        >Intellectuele Eigendomsrechten:</strong
+                      >
+                      alle rechten van intellectuele eigendom met betrekking tot
+                      het Platform en de Diensten, waaronder maar niet beperkt
+                      tot octrooirecht, auteursrecht, handelsnaamrecht,
+                      merkrecht, modelrecht, databankrecht en naburige rechten,
+                      alsmede rechten op knowhow en bedrijfsgeheimen.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.7&nbsp;&nbsp;<strong>PEP:</strong> politiek prominent
+                      persoon, directe familieleden en naast geassocieerden van
+                      die persoon.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.8&nbsp;&nbsp;<strong>Platform:</strong> Betcity.nl en
+                      alle onderliggende pagina’s, subdomeinen.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.9&nbsp;&nbsp;<strong>Speelrekening:</strong> de door
+                      Betent in zijn spelsysteem op naam van een Speler
+                      aangehouden rekening met het speeltegoed van die Speler,
+                      die uitsluitend wordt gebruikt ten behoeve van de deelname
+                      aan de Diensten.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.10&nbsp;&nbsp;<strong>Speelwinst:</strong> prijzen of
+                      premies door de Speler behaald met deelname aan de
+                      Diensten.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.11&nbsp;&nbsp;<strong>Speler:</strong> de klant van
+                      Betent die conform deze Algemene voorwaarden als speler is
+                      ingeschreven.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.12&nbsp;&nbsp;<strong>Spelersaccount:</strong> de
+                      persoonlijke omgeving waartoe een Speler toegang krijgt na
+                      het succesvol registreren als Speler.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.13&nbsp;&nbsp;<strong>Tegenrekening:</strong> de bij
+                      inschrijving op het Platform opgegeven en op naam van een
+                      Speler aangehouden bankrekening bij een in een lidstaat
+                      gevestigde kredietinstelling met een vergunning als
+                      bedoeld in artikel 8 van Richtlijn 2013/36/EU of bij een
+                      in een lidstaat gevestigde betaaldienstverlener met een
+                      vergunning als bedoeld in artikel 11 van Richtlijn (EU)
+                      2015/2366.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.14&nbsp;&nbsp;<strong>Vergunning:</strong> de vergunning
+                      voor het organiseren van kansspelen op afstand als bedoeld
+                      in artikel 31a Wet op de kansspelen met kenmerk [#];
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      1.15&nbsp;&nbsp;<strong>Wwft:</strong> de Wet ter
+                      voorkoming van witwassen en financiering van terrorisme.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="toepasselijkheid">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 2. Toepasselijkheid</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      2.1 De Algemene voorwaarden zijn van toepassing op alle
+                      Diensten die Betent aanbiedt op het Platform.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      2.2 Betent behoudt zich het recht voor om de Algemene
+                      voorwaarden op elk moment eenzijdig te wijzigen.
+                      Wezenlijke wijzigingen zullen tenminste een maand voordat
+                      deze van kracht worden aan de Speler worden
+                      gecommuniceerd. Indien de Speler niet akkoord gaat met de
+                      wijziging(en), zal het Spelersaccount worden beëindigd
+                      conform de Algemene voorwaarden.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      2.3 De Algemene voorwaarden zijn opgesteld in de
+                      Nederlandse taal. Bij vertalingen zal in geval van
+                      discrepantie tussen de Nederlandse versie en de vertaalde
+                      versie de Nederlandse versie voorgaan.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="inschrijving">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 3. Inschrijving</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      3.1 Inschrijving bij Betent als Speler is mogelijk voor
+                      alle natuurlijke personen die:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. De leeftijd van 18
+                      jaar hebben bereikt; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Niet zijn
+                      ingeschreven in Cruks;
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      3.2 Om zich in te schrijven moeten de volgende gegevens,
+                      voor zover van toepassing, verstrekt worden, zoals ook
+                      opgenomen op het betreffende identiteitsdocument:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Voorna(a)m(en) en
+                      achternaam;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Geboortedatum en
+                      -plaats;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Indien van
+                      toepassing: BSN (na inschrijving van de Speler wordt dit
+                      direct vernietigd, tenzij uit enige wettelijk voorschrift
+                      anders voortvloeit);
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d. Woonadres;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e. E-mailadres;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f. Telefoonnummer;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g. Bankrekeningnummer
+                      en de tenaamstelling;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h. Aard, nummer, datum
+                      en plaats van uitgifte van een geldig identiteitsdocument
+                      (hiertoe dient de persoon een geldig identiteitsdocument
+                      te uploaden).
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      3.3 Door zich in te schrijven als Speler verklaart een
+                      Speler:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Handelingsbekwaam
+                      te zijn;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Akkoord te gaan met
+                      de Algemene voorwaarden;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Uitsluitend voor
+                      eigen rekening te zullen spelen;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d. De inschrijving als
+                      Speler niet te zullen gebruiken voor witwassen of
+                      financiering van terrorisme, voor fraude met of misbruik
+                      van de Diensten;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e. Zorgvuldig om te
+                      zullen gaan met de identificatiemiddelen voor inschrijving
+                      als Speler op het Platform, alle redelijke maatregelen te
+                      nemen om het gebruik daarvan door derden te voorkomen, en
+                      daartoe zo nodig de nader door Betent te stellen
+                      voorschriften op te volgen;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f. Kennis te hebben
+                      genomen van:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. De Algemene
+                      voorwaarden;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Het
+                      <a
+                        href="/verantwoord-spelen"
+                        rel="noopener"
+                        target="_blank"
+                        >Verslavingspreventiebeleid</a
+                      >
+                      ;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Het
+                      <a
+                        href="/kansspelgerelateerde-criminaliteit"
+                        rel="noopener"
+                        target="_blank"
+                        >beleid ter voorkoming van kansspelgerelateerde
+                        criminaliteit</a
+                      >
+                      ; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d. Het
+                      <a
+                        href="/privacyverklaring"
+                        rel="noopener"
+                        target="_blank"
+                        >privacy statement van Betent</a
+                      >
+                      .
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      3.4 Inschrijving als Speler vindt slechts plaats na:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Succesvolle
+                      identificatie en verificatie van de opgegeven en overlegde
+                      gegevens door middel van VerifyMe-oplossing van CDDN.nl.
+                      Betent kan bij Spelers met een BSN als alternatieve
+                      identiteitsverificatie de zogenaamde Cruks-code en
+                      verificatie van de tenaamstelling van de Tegenrekening
+                      gebruiken;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Validatie van het
+                      e-mailadres en telefoonnummer;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Validatie van de
+                      tegenrekening;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d. Raadpleging van
+                      Cruks en bevestiging dat de betrokken persoon daarin niet
+                      is opgenomen;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e. Sanctiescreening,
+                      dat wil zeggen dat Betent vaststelt dat tegen inschrijving
+                      van de betrokken persoon als Speler geen bezwaren of
+                      bedenkingen bestaan op grond van de Wwft en/of de
+                      Sanctiewet 1977;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f. Vaststelling van de
+                      limieten door de betrokken persoon, te weten:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•
+                      De maximale duur van de toegang tot het Spelersaccount per
+                      dag, week of maand;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•
+                      De maximale stortingen op de Speelrekening per dag, week
+                      of maand; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•
+                      Het maximale tegoed op de Speelrekening;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g. Vaststelling dat de
+                      betrokken persoon 18 jaar of ouder is; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h. Indien van
+                      toepassing, succesvolle afronding van een verscherpt
+                      cliëntenonderzoek.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      3.5 Betent behoudt zich het recht voor om bij het bestaan
+                      van risico verhogende factoren een zogenaamd verscherpt
+                      cliëntenonderzoek uit te voeren, onder andere wanneer de
+                      betrokken persoon een verhoogd risico met zich meebrengt
+                      op witwassen of het financieren van terrorisme. Dit is
+                      bijvoorbeeld het geval bij:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. inwoners van landen
+                      met verhoogde geografische risicofactoren; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. PEP’s.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      3.6 Als Betent vaststelt dat een verscherpt
+                      cliëntenonderzoek moet worden uitgevoerd, verricht Betent
+                      in ieder geval een onderzoek naar de bron van de middelen
+                      van de betrokken persoon.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      3.7 Ten aanzien van PEP’s voert Betent een aantal
+                      specifieke maatregelen uit, namelijk:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Toestemming van een
+                      lid van het hoger leidinggevend kader van Betent om de
+                      betrokken persoon in te schrijven als Speler;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Intensief monitoren
+                      van de transacties; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Te allen tijde
+                      onderzoek naar herkomst van de middelen van de PEP.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      3.8 Betent behoudt zich het recht voor om als onderdeel
+                      van de inschrijving als Speler nadere documenten en
+                      informatie op te vragen of om een persoon niet als Speler
+                      in te schrijven, wanneer Betent weet of redelijkerwijs
+                      moet vermoeden dat de betrokken persoon niet aan de
+                      voorwaarden voor inschrijving als Speler als bedoeld in
+                      dit artikel voldoet.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="aanmelding">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 4. Aanmelding</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      4.1 Bij iedere aanmelding van de Speler identificeert
+                      Betent de Speler en raadpleegt Cruks. De Speler krijgt
+                      alleen toegang tot zijn Spelersaccount, nadat is
+                      vastgesteld dat de Speler niet is ingeschreven in Cruks,
+                      met uitzondering van de situatie waarin Cruks als gevolg
+                      van een technische storing niet kan worden geraadpleegd.
+                      In dat geval:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Stelt Betent de
+                      Kansspelautoriteit onverwijld in kennis van de storing en
+                      de gevolgen daarvan;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Raadpleegt Betent
+                      het register zo spoedig mogelijk nadat de storing is
+                      opgeheven; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Beëindigt Betent de
+                      aanmelding van de in Cruks ingeschreven en tijdens de
+                      storing aangemelde Speler.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      4.2 Betent heeft technische en organisatorische
+                      maatregelen getroffen ter voorkoming van doorlopende en/of
+                      ongeautoriseerde aanmelding. De Speler mag deze niet
+                      omzeilen of obstrueren.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      4.3 Betent laat een Speler niet toe tot deelname aan de
+                      Diensten, als het saldo op zijn Speelrekening daarvoor
+                      ontoereikend is.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="schorsing">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 5. Schorsing</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      5.1 Betent schorst de mogelijkheid tot deelname aan de
+                      Diensten in ieder geval:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Op verzoek van de
+                      Speler;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Bij een redelijk
+                      vermoeden dat niet of niet langer wordt voldaan aan de
+                      voorwaarden voor inschrijving als Speler en/of aan de
+                      Algemene voorwaarden;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Bij een redelijk
+                      vermoeden dat de Speler door onmatige deelname aan
+                      kansspelen of kansspelverslaving zichzelf of zijn naasten
+                      schade kan berokken, als gevolg waarvan Betent de Speler
+                      heeft geadviseerd zich te laten inschrijven in Cruks, bij
+                      gebreke waarvan Betent de Kansspelautoriteit hierover
+                      heeft ingelicht;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d. Bij (een redelijk
+                      vermoeden van) misbruik, fraude, vals spel of ander
+                      oneigenlijk gebruik van de diensten van Betent of niet
+                      naleving van toepasselijke wet- en regelgeving, waaronder
+                      in elk geval witwassen;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e. Als de
+                      autoriteiten, waaronder maar niet beperkt tot de
+                      Kansspelautoriteit, daarom verzoeken;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f. Bij een
+                      faillissement, onderbewindstelling, ondercuratelestelling,
+                      surseance of wettelijke schuldsanering of andere
+                      insolventieregeling met betrekking tot de Speler;
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      5.2 In het geval van een schorsing wegens een redelijk
+                      vermoeden van welke aard dan ook, wordt de mogelijkheid
+                      tot deelname aan de Diensten geschorst voor de duur van
+                      het onderzoek, echter maximaal zes maanden. De schorsing
+                      van de mogelijkheid tot deelname aan de Diensten heeft
+                      geen gevolgen voor de toegang van de Speler tot de
+                      gegevens met betrekking tot diens Speelrekening.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="beeindiging">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 6. Beëindiging</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      6.1 Betent beëindigt de inschrijving van een Speler in
+                      ieder geval indien de Speler daarom verzoekt. Dit verzoek
+                      kan worden gedaan door contact op te nemen met de
+                      klantenservice op
+                      <a
+                        href="mailto:lantenservice@betcity.nl"
+                        rel="noopener"
+                        target="_blank"
+                        >klantenservice@betcity.nl</a
+                      >.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      6.2 Betent beëindigt de inschrijving van een Speler
+                      wanneer niet langer aan de voorwaarden, zoals die bij de
+                      inschrijving conform artikel 2 Algemene Voorwaarden
+                      gelden, wordt voldaan. De Speler wordt hierover
+                      geïnformeerd.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      6.3 Bij een beëindiging schakelt Betent de toegang tot de
+                      Diensten en de mogelijkheid tot aanmelding op het
+                      Spelersaccount uit.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="beheer-spelersaccount">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 7. Beheer van het Spelersaccount</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      7.1 Een Speler is verantwoordelijk voor het beheer van
+                      zijn Spelersaccount, het volledig en correct invoeren en
+                      houden van zijn gegevens en de veiligheid en het gebruik
+                      van de identificatiemiddelen gebruikersnaam en wachtwoord
+                      om zich aan te melden op het Spelersaccount.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      7.2 Een Speler heeft altijd maar één Spelersaccount op het
+                      Platform. Als een Speler meer dan één Spelersaccount
+                      heeft, blokkeert Betent onmiddellijk alle Spelersaccounts.
+                      Behaalde Speelwinsten gedurende de periode dat er sprake
+                      was van meerdere Spelersaccount(s), komen te vervallen en
+                      kunnen door Betent worden teruggevorderd.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      7.4 Betent waarborgt dat Spelers de opgegeven limieten te
+                      allen tijde kunnen wijzigen. Een verhoging van de limieten
+                      treedt pas na een week in werking en verlagingen van
+                      limieten vinden direct plaats.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="betalingstransacties">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 8. Betalingstransacties</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      8.1 Betalingstransacties tussen Betent en de Speler
+                      verlopen alleen via de Speelrekening. Een Speler kan
+                      slechts één Speelrekening hebben. Betent vergoedt geen
+                      rente over het saldo op de Speelrekening.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      8.2 Betent staat voor betalingstransactie met de Speler
+                      enkel betaalinstrumenten toe die:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Afkomstig zijn van
+                      een in een lidstaat gevestigde kredietinstelling met een
+                      vergunning als bedoeld in artikel 8 van Richtlijn
+                      2013/36/EU of door een in een lidstaat gevestigde
+                      betaaldienstverlener met een vergunning als bedoeld in
+                      artikel 11 van Richtlijn (EU) 2015/2366; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Ondubbelzinnig zijn
+                      te herleiden tot de persoon van de Speler.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      8.3 Betent crediteert en debiteert de Speelrekening zonder
+                      onnodige vertraging.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      8.4 Behoudens correcties crediteert Betent de
+                      Speelrekening van een Speler uitsluitend met geldmiddelen
+                      die:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Afkomstig zijn van
+                      de Tegenrekening van de Speler of van een andere
+                      betaalrekening bij een kredietinstelling of
+                      betaaldienstverlener als bedoeld in 8.2 onder a van de
+                      Algemene voorwaarden, en die ondubbelzinnig tot de persoon
+                      van die Speler is te herleiden;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Voortkomen uit
+                      Speelwinst; of
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Voortkomen uit een
+                      gratis verstrekt speelkrediet van Betent aan de Speler.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      8.5 Betent crediteert de Speelrekening niet:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Voor zover de
+                      Speler daarmee een of meerdere maxima zoals bedoeld in
+                      artikel 3.4 onder f van de Algemene voorwaarden
+                      overschrijdt;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Indien de
+                      mogelijkheid tot deelname is geschorst op grond van
+                      artikel 7 van de Algemene voorwaarden.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      8.6 Betent debiteert de Speelrekening van een Speler
+                      uitsluitend:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Ten gunste van de
+                      Tegenrekening van de Speler; of
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Ten behoeve van de
+                      deelname van de Speler aan de Diensten; of
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Ten gunste van
+                      Betent’s betaalrekening;
+                      <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;en nadat de
+                      Speelrekening is gecrediteerd met geld van de
+                      Tegenrekening.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      8.7 Betent debiteert de Speelrekening van de Speler ten
+                      gunste van de Tegenrekening, tenzij een betrouwbare,
+                      verantwoordelijke en controleerbare organisatie van de
+                      Diensten zich hiertegen verzet en tenzij een Speler is
+                      geschorst op grond van artikel 7 van de Algemene
+                      voorwaarden:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Indien de Speler
+                      daarom verzoekt;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Voor zover het
+                      saldo op de Speelrekening het door de Speler in zijn
+                      Spelersaccount aangegeven maximum overschrijdt; of
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Indien de
+                      inschrijving van de Speler op verzoek van de Speler wordt
+                      beëindigd.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      8.8 Betent houdt bij de uitbetaling de door Betent
+                      verplicht in te houden belastingen in conform de Wet op de
+                      kansspelbelasting.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      8.9 Indien er een vermoeden van misbruik van de
+                      Speelrekening bestaat, wordt de Speler geacht misbruik te
+                      maken van zijn Speelrekening. Betent behoudt zich het
+                      recht voor om, aan haar ter beoordeling, de betreffende
+                      storting(en) geheel of gedeeltelijk te annuleren en
+                      eventuele kosten die Betent in verband daarmee heeft
+                      gemaakt daarop in mindering te brengen.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      8.10 Betent waarborgt dat de tegoeden op de Speelrekening
+                      te allen tijde met inachtneming van de wettelijke
+                      voorschriften aan de Speler kunnen worden uitgekeerd door
+                      middel van het aanhouden van een derdengeldenrekening.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="kosten">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 9. Kosten</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      9.1 Voor deelname aan de Diensten zijn geen vergoedingen
+                      verschuldigd behalve de vereiste inzet, tenzij anders is
+                      vermeld op het Platform. De hoogte van de inzet wordt bij
+                      de betreffende Dienst op het Platform vermeld.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      9.2 De regels rondom de kansspelbelasting zijn per 1
+                      oktober aangepast. Dit houdt voor jou als speler in dat je
+                      géén belasting meer hoeft te betalen over gewonnen
+                      bedragen bij BetCity.nl!
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="privacy">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 10. Privacy</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      10.1 Betent verzamelt, verwerkt en beveiligt de
+                      persoonsgegevens van Spelers in overeenstemming met de
+                      Algemene Verordening Gegevensbescherming. Hierop is het
+                      <a
+                        href="/privacyverklaring"
+                        rel="noopener"
+                        target="_blank"
+                        >privacy statement</a
+                      >
+                      van toepassing.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="klantendienst">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 11. Klantendienst</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      11.1 De Klantendienst is de gehele dag kosteloos
+                      bereikbaar in de Nederlandse en Engelse taal via:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Chatfunctie op het
+                      Platform
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. E-mail op
+                      e-mailadres:
+                      <a
+                        href="mailto:klantenservice@betcity.nl"
+                        rel="noopener"
+                        target="_blank"
+                        >klantenservice@betcity.nl</a
+                      >
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Telefoon op
+                      telefoonnummer: 0800 238 2489 (0800-BETCITY)
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      11.2 De Klantendienst heeft de volgende taken:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a.
+                      Informatievoorziening en ondersteuning met betrekking tot
+                      diensten die Betent aanbiedt op het Platform;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Het registreren en
+                      behandelen van klachten conform wet- en regelgeving, zoals
+                      uitgewerkt in artikel 12 Algemene voorwaarden; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Het herkennen en
+                      registreren van interne en externe signalen die wijzen op
+                      onmatige deelname of risico’s op kansspelverslaving.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="klachtenprocedure">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 12. Klachtenprocedure</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      12.1 Als een Speler klachten heeft over de diensten van
+                      Betent kan de Speler hierover een klacht indienen.
+                      Klachten kunnen schriftelijk worden ingediend bij de
+                      Klantendienst via
+                      <a
+                        href="mailto:klantenservice@betcity.nl"
+                        rel="noopener"
+                        target="_blank"
+                        >klantenservice@betcity.nl</a
+                      >
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      12.2 Klachten worden binnen 72 uur na ontvangst
+                      geregistreerd. Daarbij worden geregistreerd:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. De contactgegevens
+                      van de klager;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. De datum van
+                      ontvangst van de klacht; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Het onderwerp en de
+                      inhoud van de klacht;
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      12.3. De ontvangst van de klacht wordt binnen 72 uur
+                      nadien aan de klager bevestigd.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      12.4. De Klantendienst handelt klachten, afhankelijk van
+                      de aard daarvan, binnen 8 weken na ontvangst af. De klager
+                      wordt schriftelijk en met opgave van redenen op de hoogte
+                      gesteld van de bevindingen met betrekking tot de klacht en
+                      van de conclusie.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      12.5. Indien de klacht betrekking heeft op gedrag waarover
+                      de klager eerder een klacht heeft ingediend en die volgens
+                      deze klachtenprocedure is afgehandeld, wordt de klacht
+                      niet in behandeling genomen en wordt de klager hiervan
+                      binnen een week na ontvangst van de klacht op de hoogte
+                      gesteld.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      12.6. De afronding van de behandeling van een klacht wordt
+                      binnen 72 uur na de behandeling geregistreerd. Daarbij
+                      wordt geregistreerd:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Binnen welke
+                      termijn de klacht is afgehandeld;
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Hoe de klacht is
+                      behandeld; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Het resultaat van
+                      de behandeling van de klacht.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      12.7. De gegevens betreffende de persoon van de Speler
+                      worden geregistreerd met inachtneming van het privacy
+                      statement.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="verantwoord-spelen">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 13. Verantwoord spelen</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      13.1 Een Speler kan op elk moment de grenzen van zijn
+                      speelgedrag zoals bedoeld in artikel 3.4 onder f van de
+                      Algemenen Voorwaarden wijzigen, met dien verstande dat:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Een verlaging van
+                      een of meer maxima onmiddellijk in werking treedt; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Een verhoging van
+                      een of meer maxima na tenminste een week.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      13.2 Een Speler kan zich op elk moment vrijwillig laten
+                      uitsluiten van deelname aan alle op basis van een
+                      vergunning van de Kansspelautoriteit aangeboden kansspelen
+                      door zich te laten inschrijven in Cruks via:
+                      <a
+                        href="https://kansspelautoriteit.nl/veilig-spelen/gokproblemen/inschrijven-cruks/"
+                        rel="noopener"
+                        target="_blank"
+                        >https://kansspelautoriteit.nl/veilig-spelen/gokproblemen/inschrijven-cruks/</a
+                      >.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      13.3 Een Speler kan onvrijwillig worden uitgesloten van
+                      deelname aan kansspelen door te worden ingeschreven in
+                      Cruks. De Speler heeft dan niet langer toegang tot enig
+                      kansspelaanbod.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      13.4 Voor meer informatie over de uitsluiting van
+                      deelname, andere voorzieningen in verband met verantwoord
+                      spelen en het beleid van Betent in dit verband, wordt
+                      verwezen naar het
+                      <a
+                        href="/verantwoord-spelen"
+                        rel="noopener"
+                        target="_blank"
+                        >Verslavingspreventiebeleid</a
+                      >
+                      .
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="intellectuele-eigendom">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 14. Intellectuele eigendom</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      14.1 De Intellectuele Eigendomsrechten op het Platform en
+                      de Diensten berusten bij Betent en/of aan Betent gelieerde
+                      ondernemingen of haar licentiegevers.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      14.2 Deelname aan de Diensten is alleen voor persoonlijk
+                      gebruik ten behoeve van de deelname aan de kansspelen op
+                      het Platform. Spelers mogen geen inbreuk maken op de
+                      hiervoor genoemde Intellectuele Eigendomsrechten, door
+                      deze op enige manier openbaar te maken, te kopiëren of
+                      voor enig ander doel te gebruiken. Het is daarom niet
+                      toegestaan om reverse engineering of een decompilatie toe
+                      te passen terzake van de inhoud van het Platform, de
+                      eigendomsvermelding daarvan te wijzigen, te verwijderen of
+                      onleesbaar te maken, of te proberen de broncode of andere
+                      vertrouwelijke informatie af te leiden of op enige wijze
+                      te gebruiken ten nadele van Betent, aan Betent gelieerde
+                      ondernemingen en/of haar licentiegevers;
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      14.3 Het is Spelers voorts niet toegestaan om domeinnamen,
+                      merken of Google AdWords te registeren die lijken op of
+                      identiek zijn aan enige werken en/of tekens waarop Betent
+                      Intellectuele Eigendomsrechten heeft.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      14.4 Niet alleen Betent maar ook aan Betent gelieerde
+                      derden en/of bij het Platform betrokken partners, kunnen
+                      op dit artikel 14 Algemene voorwaarden een beroep doen.
+                      Dit artikel en, waar nodig de overige artikelen van de
+                      Algemene voorwaarden, gelden hiertoe jegens hen als een
+                      onherroepelijk derdenbeding als bedoeld in artikel 6:253
+                      Burgerlijk Wetboek.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="spelonderbrekingen">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 15. Spelonderbrekingen</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      15.1 Betent spant zich in om technische storingen en
+                      andere incidenten die het normale spelverloop verhinderen,
+                      zo veel mogelijk te voorkomen.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      15.2 In het geval van een technische storing of incident
+                      waarbij een gestart spel niet kan worden voortgezet
+                      vanwege een oorzaak aan de zijde van Betent, zal Betent:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. De speler hierover
+                      informeren via de interface; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. De inzet van de
+                      Speler terugstorten.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      15.3 In het geval van een technische storing of incident
+                      waarbij een gestart spel niet kan worden voortgezet
+                      vanwege een oorzaak aan de zijde van de Speler, zal
+                      Betent:
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. De speler indien
+                      mogelijk hierover informeren via de interface; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. De inzet van de
+                      Speler niet terugstorten; en
+                    </p>
+                    <p class="is-2 p1">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Het resultaat van
+                      de speelronde verrekenen met het spelersaccount.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="aansprakelijkheid">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 16. Aansprakelijkheid</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      16.1 Betent is niet aansprakelijk voor schade als gevolg
+                      van of in verband met het gebruik van het Platform,
+                      deelname aan de Diensten en/of voor informatie verstrekt
+                      door of vanwege Betent, inclusief de medewerkers van
+                      Betent.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      16.2 Betent aanvaardt geen aansprakelijkheid voor schade
+                      als gevolg van (tijdelijke) onderbrekingen van of
+                      storingen de functies en/of tijdelijke beperkingen van de
+                      mogelijkheden van het Platform of de Diensten.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      16.3 Betent is niet aansprakelijk voor storingen die
+                      veroorzaakt worden door de apparatuur van de Speler of
+                      storingen van de internetprovider van Speler of voor
+                      schade veroorzaakt door ongeoorloofd gebruik van het
+                      Spelersaccount.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      16.4 Betent aanvaardt geen aansprakelijkheid voor schade
+                      als gevolg van faillissement van de bank(en) of andere
+                      partijen waarmee Betent samenwerkt voor de exploitatie van
+                      het Platform.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      16.5 Betent is niet aansprakelijk voor schade als gevolg
+                      van overmacht, zoals maar niet beperkt tot
+                      internetstoringen, hardware storingen, netwerkstoringen en
+                      soortgelijke omstandigheden, DDOS en soortgelijke
+                      aanvallen, stakingen, oproer, overheidsmaatregelen, brand,
+                      pandemie, natuurrampen, overstromingen en andere
+                      onvoorziene omstandigheden.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      16.6 De in dit artikel vermelde beperkingen van
+                      aansprakelijkheid zijn niet van toepassing voor zover
+                      dwingend recht zich daartegen verzet.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      16.7 Onder ‘schade’ zoals bedoeld in dit artikel verstaat
+                      Betent ook gevolgschade, zoals maar niet beperkt tot
+                      gederfde omzet, winst en immateriële schade als ook het
+                      verlies van data.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="overig">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 17. Overig</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      17.1 Betent behoudt zich het recht voor om de rechten en
+                      verplichtingen die uit de Algemene voorwaarden
+                      voortvloeien over te dragen aan derden. Betent heeft
+                      hiervoor geen voorafgaande schriftelijke toestemming van
+                      een Speler nodig.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      17.2 Het is een Speler niet toegestaan zijn rechten en
+                      verplichtingen onder de Algemene voorwaarden aan een derde
+                      overdragen zonder voorafgaande schriftelijke toestemming
+                      van Betent.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      17.3 Betent behoudt zich het recht voor om de Diensten te
+                      wijzigen, toe te voegen of te staken voor zover toegestaan
+                      op grond van geldende wet- en regelgeving en de
+                      Vergunning.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      17.4 Indien Betent geen of gedeeltelijk gebruik maakt van
+                      haar rechten, betekent dit niet dat Betent afstand doet
+                      van deze rechten en ontslaat dit de Speler niet van zijn
+                      verplichtingen.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      17.5 Als een bepaling uit de Algemene voorwaarden in
+                      strijd is met wet- of regelgeving, zal dat de overige
+                      bepalingen van de Algemene voorwaarden niet aantasten. De
+                      betreffende bepaling zal geacht worden te zijn vervangen
+                      door een nieuwe bepaling die wettelijk wel is toegestaan
+                      en die naar aard en inhoud zoveel mogelijk de bedoeling
+                      van de oorspronkelijke bepaling zal hebben.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="recht">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong
+                        >Artikel 18. Toepasselijk recht en bevoegde
+                        rechter</strong
+                      >
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      18.1 Op de Algemene voorwaarden en alle daarmee verband
+                      houden overeenkomsten tussen een Speler en Betent is
+                      Nederlands recht is van toepassing. De Rechtbank te
+                      Amsterdam is uitsluitend bevoegd om kennis te nemen van
+                      mogelijke geschillen, tenzij de wet dwingend een andere
+                      rechtbank voorschrijft.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                  <div id="weddenschapreglementen">
+                    <h2 class="subtitle is-2" style="text-transform: uppercase">
+                      <strong>Artikel 19. Weddenschapreglementen</strong>
+                    </h2>
+                    <p class="is-2 p1">&nbsp;</p>
+                    <p class="is-2 p1">
+                      19.1 Voor de volledige Weddenschapsreglementen, klik
+                      <a
+                        href="/voorwaarden-sportsbook"
+                        rel="noopener"
+                        target="_blank"
+                        >Voorwaarden Sportsbook</a
+                      >.
+                    </p>
+                    <p class="is-2 p1">&nbsp;</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- END HTML Terms & Conditions -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="layout-container">
+        <div class="row" style="padding: 0px; --gutterX: 0.75rem">
+          <div
+            class="background background--fullwidth"
+            style="background-repeat: repeat; background-position: center top"
+          ></div>
+          <div class="col col-12 is-hidden-mobile">
+            <div
+              class="h-100"
+              style="
+                padding: 0px;
+                background-size: auto;
+                background-repeat: repeat;
+                background-position: center top;
+              "
+            >
+              <section class="text-content">
+                <div class="overflow-auto">
+                  <table
+                    style="
+                      width: 90%;
+                      margin: auto;
+                      border-collapse: collapse;
+                      border-style: hidden;
+                    "
+                  >
+                    <tbody>
+                      <tr style="border-style: hidden">
+                        <td style="border-style: hidden">
+                          <img
+                            alt="Visa"
+                            src="/media/2021-04/visa.svg"
+                            style="max-width: 80px"
+                          />
+                        </td>
+                        <td style="border-style: hidden">
+                          <img
+                            alt="MasterCard"
+                            src="/media/2021-04/mastercard.svg"
+                            style="max-width: 80px"
+                          />
+                        </td>
+                        <td style="border-style: hidden">
+                          <img
+                            alt="Maestro"
+                            src="/media/2021-04/maestro.svg"
+                            style="max-width: 80px"
+                          />
+                        </td>
+                        <td style="border-style: hidden">
+                          <img
+                            alt="Bank Transfer"
+                            src="/media/2021-04/wire-transfer.svg"
+                            style="max-width: 80px"
+                          />
+                        </td>
+                        <td style="border-style: hidden">
+                          <img
+                            alt="Ideal"
+                            src="/media/2021-04/ideal.svg"
+                            style="max-width: 80px"
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+              <hr
+                width="100%"
+                style="
+                  border-top: 1px solid rgb(52, 52, 52);
+                  border-right-color: rgb(52, 52, 52);
+                  border-bottom-color: rgb(52, 52, 52);
+                  border-left-color: rgb(52, 52, 52);
+                  background: transparent;
+                  margin-left: auto;
+                  margin-right: auto;
+                "
+              />
+            </div>
+          </div>
+          <div class="col col-12">
+            <div
+              class="h-100"
+              style="
+                padding: 0px;
+                background-size: auto;
+                background-repeat: repeat;
+                background-position: center top;
+              "
+            >
+              <ul class="nav">
+                <li is-selected="" class="depth-1 is-active nav__item">
+                  <a
+                    href="https://www.betcity.nl/algemene-voorwaarden"
+                    class="nav__link"
+                    ><span title="ALGEMENE VOORWAARDEN" class="nav__title"
+                      >ALGEMENE VOORWAARDEN</span
+                    ></a
+                  >
+                </li>
+                <li class="depth-1 nav__item">
+                  <a
+                    href="https://www.betcity.nl/bonus-voorwaarden"
+                    class="nav__link"
+                    ><span title="BONUS VOORWAARDEN" class="nav__title"
+                      >BONUS VOORWAARDEN</span
+                    ></a
+                  >
+                </li>
+                <li class="depth-1 nav__item">
+                  <a href="https://www.betcity.nl/cookies" class="nav__link"
+                    ><span title="COOKIESTATEMENT" class="nav__title"
+                      >COOKIESTATEMENT</span
+                    ></a
+                  >
+                </li>
+                <li class="depth-1 nav__item">
+                  <a
+                    href="https://www.betcity.nl/privacyverklaring"
+                    class="nav__link"
+                    ><span title=" PRIVACYSTATEMENT" class="nav__title">
+                      PRIVACYSTATEMENT</span
+                    ></a
+                  >
+                </li>
+                <li class="depth-1 nav__item">
+                  <a href="https://www.betcity.nl/complaint" class="nav__link"
+                    ><span title="KLACHTENREGELING" class="nav__title"
+                      >KLACHTENREGELING</span
+                    ></a
+                  >
+                </li>
+                <li class="depth-1 nav__item">
+                  <a
+                    href="https://www.betcity.nl/verantwoord-spelen"
+                    class="nav__link"
+                    ><span title="VERANTWOORD SPELEN" class="nav__title"
+                      >VERANTWOORD SPELEN</span
+                    ></a
+                  >
+                </li>
+                <li class="depth-1 nav__item">
+                  <a href="https://www.betcity.nl/contact-us" class="nav__link"
+                    ><span title="CONTACT" class="nav__title">CONTACT</span></a
+                  >
+                </li>
+                <li class="depth-1 nav__item">
+                  <a href="https://www.betcity.nl/over-ons" class="nav__link"
+                    ><span title="OVER ONS" class="nav__title"
+                      >OVER ONS</span
+                    ></a
+                  >
+                </li>
+                <li class="depth-1 nav__item">
+                  <a href="https://www.betcity.nl/partners" class="nav__link"
+                    ><span title="PARTNERS" class="nav__title"
+                      >PARTNERS</span
+                    ></a
+                  >
+                </li>
+                <li class="depth-1 nav__item">
+                  <a href="https://help.betcity.nl/" class="nav__link"
+                    ><span title="FAQ" class="nav__title">FAQ</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col col-12 col-md-2 is-hidden-mobile">
+            <div
+              class="h-100"
+              style="
+                padding: 0px;
+                background-size: auto;
+                background-repeat: repeat;
+                background-position: center top;
+              "
+            >
+              <hr
+                width="100%"
+                style="
+                  border-top-width: 0px;
+                  border-top-style: solid;
+                  background: transparent;
+                  margin-right: auto;
+                "
+              />
+            </div>
+          </div>
+          <div class="col col-12 col-md-8">
+            <div
+              class="h-100"
+              style="
+                margin-top: 25px;
+                margin-bottom: 25px;
+                padding: 0px;
+                background-size: auto;
+                background-repeat: repeat;
+                background-position: center top;
+              "
+            >
+              <section class="text-content">
+                <p class="is-5" style="text-align: center">
+                  <span
+                    data-contrast="none"
+                    lang="NL-NL"
+                    class="BCX0 SCXW232286443 TextRun"
+                    ><span class="BCX0 NormalTextRun SCXW232286443">Betent</span
+                    ><span class="BCX0 NormalTextRun SCXW232286443"
+                      ><span>&nbsp;</span>B.V., gevestigd en kantoorhoudende aan
+                      Ceintuurbaan 286-H, 1072 GK te Amsterdam, beschikt over
+                      een vergunning tot het op afstand organiseren van
+                      casinospelen en weddenschappen. De vergunning met
+                      kenmerk:&nbsp;<a
+                        href="https://kansspelautoriteit.nl/veilig-spelen/veilig-online-gokken/kansspelwijzer-online-gokken/@11392/betent/"
+                        rel="noopener"
+                        target="_blank"
+                        title="KSA  Gegevens vergunninghouder"
+                        ><span>1712/01.247.822</span></a
+                      ></span
+                    ></span
+                  ><span
+                    data-contrast="none"
+                    lang="NL-NL"
+                    class="BCX0 SCXW232286443 TextRun"
+                    ><span class="BCX0 NormalTextRun SCXW232286443"
+                      >&nbsp;is verleend door de Kansspelautoriteit op 29
+                      september 2021</span
+                    ></span
+                  ><span data-ccp-props="{}" class="BCX0 EOP SCXW232286443"
+                    >&nbsp;</span
+                  >
+                </p>
+              </section>
+            </div>
+          </div>
+          <div class="col col-12 col-md-2 is-hidden-mobile">
+            <div
+              class="h-100"
+              style="
+                padding: 0px;
+                background-size: auto;
+                background-repeat: repeat;
+                background-position: center top;
+              "
+            >
+              <hr
+                width="100%"
+                style="
+                  border-top-width: 0px;
+                  border-top-style: solid;
+                  background: transparent;
+                  margin-right: auto;
+                "
+              />
+            </div>
+          </div>
+          <div class="col col-12 col-md-2">
+            <div
+              class="h-100"
+              style="
+                padding: 0px;
+                background-size: auto;
+                background-repeat: repeat;
+                background-position: center top;
+              "
+            >
+              <div class="image-element text-left">
+                <a
+                  href="https://kansspelautoriteit.nl/online-vergunningen"
+                  target="_blank"
+                  class="is-link"
+                  ><img
+                    alt=""
+                    class=""
+                    style="padding: 0px"
+                    src="//www.betcity.nl/media/2021-09/woordmerk-koa-wit.svg"
+                /></a>
+              </div>
+            </div>
+          </div>
+          <div class="col col-12 col-md-2">
+            <div
+              class="h-100"
+              style="
+                padding: 0px;
+                background-size: auto;
+                background-repeat: repeat;
+                background-position: center top;
+              "
+            ></div>
+          </div>
+          <div class="col col-12 col-md-4">
+            <div
+              class="h-100"
+              style="
+                padding: 0px;
+                background-size: auto;
+                background-repeat: repeat;
+                background-position: center top;
+              "
+            >
+              <div class="image-element text-center">
+                <img
+                  alt=""
+                  class=""
+                  style="padding: 0px; width: 140px"
+                  src="//www.betcity.nl/media/2021-10/speel-bewust-18-1.svg"
+                />
+              </div>
+              <hr
+                width="100%"
+                style="
+                  border-top: 1px solid rgb(52, 52, 52);
+                  border-right-color: rgb(52, 52, 52);
+                  border-bottom-color: rgb(52, 52, 52);
+                  border-left-color: rgb(52, 52, 52);
+                  background: transparent;
+                  margin-left: auto;
+                  margin-right: auto;
+                "
+              />
+            </div>
+          </div>
+          <div class="col col-12 col-md-2 is-hidden-mobile">
+            <div
+              class="h-100"
+              style="
+                padding: 0px;
+                background-size: auto;
+                background-repeat: repeat;
+                background-position: center top;
+              "
+            ></div>
+          </div>
+          <div class="col col-12 col-md-2">
+            <div
+              class="h-100"
+              style="
+                padding: 0px;
+                background-size: auto;
+                background-repeat: repeat;
+                background-position: center top;
+              "
+            >
+              <div class="image-element text-left">
+                <a
+                  href="https://www.betcity.nl/vitesse"
+                  target=""
+                  class="is-link"
+                  ><img
+                    alt=""
+                    class=""
+                    style="padding: 0px"
+                    src="//www.betcity.nl/media/2022-01/official-betting-partner-logo-vitesse-onsite-AJi-medium.png"
+                /></a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col col-12 col-md-8 is-hidden-mobile is-hidden-tablet-only"
+          >
+            <div
+              class="d-flex flex-column h-100 justify-content-center"
+              style="
+                padding: 0px;
+                background-size: auto;
+                background-repeat: repeat;
+                background-position: center top;
+              "
+            >
+              <section class="text-content">
+                <p class="is-5" style="text-align: left; margin-top: 5px">
+                  <span style="color: rgb(255, 255, 255)"
+                    >Â© Betent B.V. 2021-2022 | BetCity.nl is een handelsnaam
+                    van Betent B.V.<br /></span
+                  ><span style="color: rgb(255, 255, 255)"></span>
+                </p>
+              </section>
+            </div>
+          </div>
+          <div
+            class="col col-12 col-md-4 is-hidden-mobile is-hidden-tablet-only"
+          >
+            <div
+              class="d-flex flex-column h-100 justify-content-center"
+              style="
+                padding: 0px;
+                background-size: auto;
+                background-repeat: repeat;
+                background-position: center top;
+              "
+            >
+              <div class="image-list">
+                <a
+                  href="https://www.facebook.com/betcity.nl/"
+                  target="_blank"
+                  class="image-list__item"
+                  ><img
+                    alt="BetCity Facebook"
+                    title="BetCity Facebook"
+                    class="image-list__img"
+                    src="//www.betcity.nl/media/2021-04/facebook.svg"
+                /></a>
+                <a
+                  href="https://twitter.com/betcity_nl"
+                  target="_blank"
+                  class="image-list__item"
+                  ><img
+                    alt="BetCity Twitter"
+                    title="BetCity Twitter"
+                    class="image-list__img"
+                    src="//www.betcity.nl/media/2021-04/twitter.svg"
+                /></a>
+                <a
+                  href="https://www.instagram.com/betcity.nl/"
+                  target="_blank"
+                  class="image-list__item"
+                  ><img
+                    alt="BetCity Instagram"
+                    title="BetCity Instagram"
+                    class="image-list__img"
+                    src="//www.betcity.nl/media/2021-04/instagram.svg"
+                /></a>
+                <a
+                  href="https://www.linkedin.com/company/betcitynl"
+                  target="_blank"
+                  class="image-list__item"
+                  ><img
+                    alt="BetCity LinkedIn"
+                    title="BetCity LinkedIn"
+                    class="image-list__img"
+                    src="//www.betcity.nl/media/2021-04/linkedin.svg"
+                /></a>
+                <a
+                  href="https://www.youtube.com/channel/UCbLv1pu2mJx0gEtRYoCiSmg"
+                  target="_blank"
+                  class="image-list__item"
+                  ><img
+                    alt="BetCity YouTube"
+                    title="BetCity YouTube"
+                    class="image-list__img"
+                    src="//www.betcity.nl/media/2021-04/youtube.svg"
+                /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
