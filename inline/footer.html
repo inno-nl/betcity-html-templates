@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 16px;
+        font-weight: 500;
+        font-family: Soehne, sans-serif;
+        line-height: 1.15;
+        text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      ul {
+        list-style: none;
+      }
+      .hedTSK {
+        padding: 3rem 1.5rem 6rem;
+        background: rgb(6, 3, 34);
+        color: rgb(255, 255, 255);
+        text-align: center;
+      }
+      .jZCSkC {
+        max-width: 1344px;
+        margin: 0px auto;
+        flex-basis: 100%;
+      }
+      .cmoxZk {
+        position: relative;
+        width: 100%;
+        padding: 0.75rem;
+        flex: 0 0 auto;
+      }
+      .fDRJDR {
+        width: 100%;
+        display: inline-flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+      }
+      .fDRJDR img + img {
+        margin-left: 10px;
+      }
+      .kjhmKt {
+        height: auto;
+        width: 50px;
+      }
+      .izmNcp {
+        position: relative;
+        width: 100%;
+        padding: 0.75rem;
+        flex: 0 0 auto;
+      }
+      .lEPkV {
+        display: flex;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+      }
+      .cZFonU {
+        max-width: 24px;
+        height: auto;
+        margin: 8px;
+      }
+      .eFJpAz {
+        width: 100%;
+        display: inline-flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        align-items: center;
+      }
+      .eFJpAz a {
+        flex: 1 0 0px;
+        padding-right: 20px;
+      }
+      .chunzM {
+        max-width: 100%;
+        height: auto;
+      }
+      .bdHxSY {
+        display: none;
+      }
+      .imEKXK {
+        position: relative;
+        width: 100%;
+        padding: 0.75rem;
+        flex: 0 0 auto;
+      }
+      .iFXCSQ {
+        margin: 14px auto 0px;
+        padding: 0px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: none;
+        gap: 28px 8px;
+      }
+      .dcGwPE {
+        display: block;
+      }
+      .imEKXK {
+        position: relative;
+        width: 100%;
+        padding: 0.75rem;
+        flex: 0 0 auto;
+      }
+      .efDEtb {
+        margin: 14px auto 0px;
+        padding: 0px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: none;
+        gap: 28px 8px;
+      }
+      .fJyqTQ {
+        text-align: left;
+        font-size: 14px;
+        line-height: 21px;
+      }
+      .fJyqTQ span {
+        display: none;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      .fJyqTQ ul {
+        margin: 0;
+        padding: 0;
+      }
+      .fJyqTQ a {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+      }
+      .imEKXK {
+        position: relative;
+        width: 100%;
+        padding: 0.75rem;
+        flex: 0 0 auto;
+      }
+      .hedTSK p {
+        font-size: 14px;
+        font-weight: 400;
+        margin: 0px;
+        padding: 0px;
+      }
+      .hedTSK p a {
+        color: rgb(0, 109, 208);
+      }
+      .lhTEkd {
+        display: flex;
+        justify-content: space-around;
+        flex: 1 1 0px;
+      }
+      .kRNUVB {
+        height: auto;
+        max-width: 100%;
+        margin: 0px auto;
+      }
+      .dSaeUv {
+        margin: 25px 0px;
+        display: block;
+        color: rgb(139, 139, 139);
+        font-size: 11px;
+      }
+      .dSaeUv p {
+        font-size: inherit;
+      }
+      .dSaeUv p span {
+        color: rgb(255, 255, 255);
+        font-size: 14px;
+      }
+      .imEKXK {
+        position: relative;
+        width: 100%;
+        padding: 0.75rem;
+        flex: 0 0 auto;
+      }
+
+      /* DESKTOP */
+      @media (min-width: 62em) {
+        .cmoxZk {
+          width: calc(32.3333%);
+          display: inline-flex;
+          vertical-align: middle;
+          -webkit-box-pack: start;
+          justify-content: flex-start;
+        }
+        .izmNcp {
+          width: calc(33.3333%);
+          display: inline-flex;
+          vertical-align: middle;
+          -webkit-box-pack: center;
+          justify-content: center;
+        }
+        .fDRJDR {
+          width: auto;
+        }
+        .bdHxSY {
+          display: block;
+        }
+        .dcGwPE {
+          display: none;
+        }
+        .iFXCSQ {
+          grid-auto-flow: column;
+          grid-template-rows: none;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 0px 8px;
+        }
+        .fJyqTQ span {
+          display: inline;
+        }
+        .lhTEkd {
+          max-width: 330px;
+          margin: 20px auto 0px;
+        }
+        .dSaeUv {
+          max-width: 590px;
+          margin: 0px auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <footer class="sc-fFeiMQ hedTSK">
+      <div class="sc-bkkeKt jZCSkC">
+        <div class="sc-dJjYzT cmoxZk">
+          <div class="sc-hGPBjI fDRJDR">
+            <img
+              src="https://meer.betcity.nl/assets/img/footer/payment/visa.svg"
+              alt="Visa"
+              class="sc-dlVxhl kjhmKt"
+            />
+            <img
+              src="https://meer.betcity.nl/assets/img/footer/payment/mastercard.svg"
+              alt="Mastercard"
+              class="sc-dlVxhl kjhmKt"
+            />
+            <img
+              src="https://meer.betcity.nl/assets/img/footer/payment/maestro.svg"
+              alt="Maestro"
+              class="sc-dlVxhl kjhmKt"
+            />
+            <img
+              src="https://meer.betcity.nl/assets/img/footer/payment/wire-transfer.svg"
+              alt="Bank transfer"
+              class="sc-dlVxhl kjhmKt"
+            />
+            <img
+              src="https://meer.betcity.nl/assets/img/footer/payment/ideal.svg"
+              alt="iDeal"
+              class="sc-dlVxhl kjhmKt"
+            />
+          </div>
+        </div>
+        <div class="sc-dJjYzT izmNcp">
+          <div class="sc-kfPuZi lEPkV">
+            <a target="_blank" href="https://www.facebook.com/betcity.nl/">
+              <img
+                src="https://meer.betcity.nl/assets/img/footer/social/facebook.svg"
+                alt="Facebook"
+                class="sc-fKVqWL cZFonU"
+              />
+            </a>
+            <a target="_blank" href="https://twitter.com/betcity_nl">
+              <img
+                src="https://meer.betcity.nl/assets/img/footer/social/twitter.svg"
+                alt="Twitter"
+                class="sc-fKVqWL cZFonU"
+              />
+            </a>
+            <a target="_blank" href="https://www.instagram.com/betcity.nl/">
+              <img
+                src="https://meer.betcity.nl/assets/img/footer/social/instagram.svg"
+                alt="Instagram"
+                class="sc-fKVqWL cZFonU"
+              />
+            </a>
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/company/betcitynl"
+            >
+              <img
+                src="https://meer.betcity.nl/assets/img/footer/social/linkedin.svg"
+                alt="LinkedIn"
+                class="sc-fKVqWL cZFonU"
+              />
+            </a>
+            <a
+              target="_blank"
+              href="https://www.youtube.com/channel/UCbLv1pu2mJx0gEtRYoCiSmg"
+            >
+              <img
+                src="https://meer.betcity.nl/assets/img/footer/social/youtube.svg"
+                alt="Youtube"
+                class="sc-fKVqWL cZFonU"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="sc-dJjYzT izmNcp">
+          <div class="sc-bBHxTw eFJpAz">
+            <a target="_blank" href="http://www.no-ga.nl/">
+              <img
+                src="https://meer.betcity.nl/assets/img/footer/noga-snk-medium.jpeg"
+                alt="NOGA"
+                class="sc-iwjdpV chunzM"
+              />
+            </a>
+            <a target="_blank" href="https://www.ibia.bet/">
+              <img
+                src="https://meer.betcity.nl/assets/img/footer/ibia-logo-FKV-medium.png"
+                alt="Ibia"
+                class="sc-iwjdpV chunzM"
+              />
+            </a>
+            <a target="_blank" href="https://www.kansspelautoriteit.nl/">
+              <img
+                src="https://meer.betcity.nl/assets/img/footer/vergunninghouder-logo-8Ny-medium.png"
+                alt="Kansspelautoriteit"
+                class="sc-iwjdpV chunzM"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="sc-ieecCq bdHxSY">
+          <div class="sc-dJjYzT imEKXK">
+            <div class="sc-cxpSdN kPZzpJ">
+              <ul class="sc-llYSUQ iFXCSQ">
+                <li class="sc-iJKOTD fJyqTQ">
+                  <span>Betrouwbaar spelen</span>
+                  <ul>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/algemene-voorwaarden"
+                        >Algemene voorwaarden</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/bonus-voorwaarden"
+                        >Bonusvoorwaarden</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a target="_blank" href="https://www.betcity.nl/cookies"
+                        >Cookiestatement</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/privacyverklaring"
+                        >Privacyverklaring</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/speel-verantwoord"
+                        >Speel Verantwoord</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="sc-iJKOTD fJyqTQ">
+                  <span>Klantenservice</span>
+                  <ul>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a target="_blank" href="https://www.betcity.nl/complaint"
+                        >Klachtenregeling</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a target="_blank" href="https://help.betcity.nl/hc/nl"
+                        >FAQ</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/contact-us"
+                        >Contact</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a target="_blank" href="https://www.betcity.nl/over-ons"
+                        >Over ons</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/speel-slimmer"
+                        >Speel Slimmer</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="sc-iJKOTD fJyqTQ">
+                  <span>Betcity Sportsbook</span>
+                  <ul>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/sportsbook/eredivisie"
+                        >Wedden op Eredivise</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/sportsbook/champions-league"
+                        >Wedden op Champions League</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/sportsbook/europa-league"
+                        >Wedden op Europa League</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/sportsbook/conference-league"
+                        >Wedden op Conference League</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/sportsbook/tennis"
+                        >Wedden op tennis</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/sportsbook/darts"
+                        >Wedden op darts</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/heel-holland-bet"
+                        >Heel Holland Bet</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="sc-iJKOTD fJyqTQ">
+                  <span>Casino</span>
+                  <ul>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/live-casino/roulette"
+                        >Live roulette</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/live-casino/blackjack"
+                        >Live blackjack</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/live-casino/baccarat"
+                        >Live baccarat</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/live-casino/poker"
+                        >Live poker</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/live-casino"
+                        >Live casino</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a target="_blank" href="https://www.betcity.nl/casino"
+                        >Online casino</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/casino/gokkasten"
+                        >Gokkasten</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="sc-iJKOTD fJyqTQ">
+                  <span>Populaire Spellen</span>
+                  <ul>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/live-casino/evolution/lightning-roulette"
+                        >Lightning Roulette</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/casino/pragmatic-play/sweet-bonanza"
+                        >Sweet Bonanza</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/casino/greentube/book-of-ra"
+                        >Book of Ra</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/casino/netent/starburst"
+                        >Starburst</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/live-casino/evolution/crazy-time"
+                        >Crazy Time</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/casino/pragmatic-play/big-bass-bonanza"
+                        >Big Bass Bonanza</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/casino/pragmatic-play/gates-of-olympus"
+                        >Gates of Olympus</a
+                      >
+                    </li>
+                    <li class="sc-iJKOTD fJyqTQ">
+                      <a
+                        target="_blank"
+                        href="https://www.betcity.nl/casino/pragmatic-play/buffalo-king-megaways"
+                        >Buffalo King Megaways</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="sc-ieecCq dcGwPE">
+          <div class="sc-dJjYzT imEKXK">
+            <div class="sc-cxpSdN kPZzpJ">
+              <ul class="sc-llYSUQ efDEtb">
+                <li class="sc-iJKOTD fJyqTQ">
+                  <a
+                    target="_blank"
+                    href="https://www.betcity.nl/algemene-voorwaarden"
+                    >Algemene voorwaarden</a
+                  >
+                </li>
+                <li class="sc-iJKOTD fJyqTQ">
+                  <a
+                    target="_blank"
+                    href="https://www.betcity.nl/bonus-voorwaarden"
+                    >Bonusvoorwaarden</a
+                  >
+                </li>
+                <li class="sc-iJKOTD fJyqTQ">
+                  <a target="_blank" href="https://www.betcity.nl/cookies"
+                    >Cookiestatement</a
+                  >
+                </li>
+                <li class="sc-iJKOTD fJyqTQ">
+                  <a
+                    target="_blank"
+                    href="https://www.betcity.nl/privacyverklaring"
+                    >Privacyverklaring</a
+                  >
+                </li>
+                <li class="sc-iJKOTD fJyqTQ">
+                  <a
+                    target="_blank"
+                    href="https://www.betcity.nl/speel-verantwoord"
+                    >Speel Verantwoord</a
+                  >
+                </li>
+                <li class="sc-iJKOTD fJyqTQ">
+                  <a target="_blank" href="https://www.betcity.nl/complaint"
+                    >Klachtenregeling</a
+                  >
+                </li>
+                <li class="sc-iJKOTD fJyqTQ">
+                  <a target="_blank" href="https://help.betcity.nl/hc/nl"
+                    >FAQ</a
+                  >
+                </li>
+                <li class="sc-iJKOTD fJyqTQ">
+                  <a target="_blank" href="https://www.betcity.nl/contact-us"
+                    >Contact</a
+                  >
+                </li>
+                <li class="sc-iJKOTD fJyqTQ">
+                  <a target="_blank" href="https://www.betcity.nl/over-ons"
+                    >Over ons</a
+                  >
+                </li>
+                <li class="sc-iJKOTD fJyqTQ">
+                  <a target="_blank" href="https://www.betcity.nl/speel-slimmer"
+                    >Speel Slimmer</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="sc-dJjYzT imEKXK">
+          <p>&nbsp;</p>
+          <p>Wat kost gokken jou? Stop op tijd. 18+</p>
+        </div>
+        <div class="sc-dJjYzT imEKXK">
+          <p>&nbsp;</p>
+          <p><strong>BetCity.nl is officiële partner van:</strong></p>
+          <p>&nbsp;</p>
+          <div class="sc-giYglK lhTEkd">
+            <a target="_blank" href="https://www.betcity.nl/vitesse"
+              ><img
+                src="https://meer.betcity.nl/assets/img/footer/clubs/vitesse-footer-1.png"
+                alt="Vitesse"
+                class="sc-ezbkAF kRNUVB"
+            /></a>
+            <a target="_blank" href="https://www.betcity.nl/fc-volendam"
+              ><img
+                src="https://meer.betcity.nl/assets/img/footer/clubs/volendam-footer-1.png"
+                alt="FC Volendam"
+                class="sc-ezbkAF kRNUVB"
+            /></a>
+            <a target="_blank" href="https://www.betcity.nl/fortuna-sittard"
+              ><img
+                src="https://meer.betcity.nl/assets/img/footer/clubs/fortuna-sittard-footer.png"
+                alt="Fortuna Sittard"
+                class="sc-ezbkAF kRNUVB"
+            /></a>
+          </div>
+        </div>
+        <div class="sc-dJjYzT imEKXK">
+          <span class="sc-bYoBSM dSaeUv"
+            ><p>
+              Betent B.V., gevestigd en kantoorhoudende aan Ceintuurbaan 286-H,
+              1072 GK te Amsterdam, beschikt over een vergunning tot het op
+              afstand organiseren van casinospelen en weddenschappen. De
+              vergunning met kenmerk:<a
+                href="https://kansspelautoriteit.nl/veilig-spelen/veilig-online-gokken/kansspelwijzer-online-gokken/@11392/betent/"
+                rel="noopener"
+                target="_blank"
+                title="KSA Gegevens vergunninghouder"
+                >1712/01.247.822</a
+              >
+              <!-- -->is verleend door de Kansspelautoriteit op 29 september
+              2021.
+            </p></span
+          >
+        </div>
+        <div class="sc-dJjYzT imEKXK">
+          <span class="sc-bYoBSM dSaeUv"
+            ><p>
+              <span
+                >© Betent B.V. 2022 | BetCity.nl is een handelsnaam van Betent
+                B.V.</span
+              >
+            </p></span
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
