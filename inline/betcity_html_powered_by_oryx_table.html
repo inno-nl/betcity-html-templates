@@ -6,7 +6,19 @@
   <body>
     <!-- HTML Table -->
     <section style="max-width: 960px; width: 100%; padding: 20px; margin: 0 auto;">
+      <style type="text/css" scoped>
+        /* DESKTOP */
+        @media (min-width: 62em) {
+          .item {
+            flex-wrap: nowrap !important;
+          }
+        }
       
+        .item + .item {
+          margin-top: 20px;
+        }
+      </style>
+
       <!-- Single bet item -->
       <div class="item" style="width: 100%; padding: 0 0 10px; display: inline-flex; align-items: center; flex-wrap: wrap; border-bottom: 1px solid rgba(6, 3, 34, 0.08);">
         <div class="meta" style="width: 100%; display: inline-flex; flex-direction: row; justify-content: left; align-items: center;">
@@ -96,19 +108,7 @@
 
     </section>
     <!-- END NEW HTML -->    
-
-    <style>
-      /* DESKTOP */
-      @media (min-width: 62em) {
-        .item {
-          flex-wrap: nowrap !important;
-        }
-      }
-
-      .item + .item {
-        margin-top: 20px;
-      }
-    </style>
+    
   </body>
 </html>
 
