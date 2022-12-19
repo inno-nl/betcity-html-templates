@@ -1,868 +1,732 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <style>
-      .title,
-      a {
-        color: #00c0db;
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <style>
+    .title,
+    a {
+      color: #00c0db;
+    }
+
+    .subtitle.is-1,
+    .subtitle.is-2,
+    .title.is-1,
+    .title.is-2 {
+      font-family: SoehneSchmal, sans-serif;
+      letter-spacing: 1px;
+    }
+
+    *,
+    ::after,
+    ::before {
+      box-sizing: inherit;
+    }
+
+    .footer {
+      background: #060322;
+      padding: 3rem 1rem 6rem;
+    }
+
+    .container,
+    .doc-upload-warning-bar {
+      max-width: 1272px;
+      margin-left: auto;
+      margin-right: auto;
+      flex-basis: 100%;
+    }
+
+    .g-3,
+    .gx-3 {
+      --gutterX: 1rem !important;
+    }
+
+    @media screen and (max-width: 909px) {
+      .text-content {
+        font-size: 12px;
       }
-      .subtitle.is-1,
-      .subtitle.is-2,
-      .title.is-1,
-      .title.is-2 {
-        font-family: SoehneSchmal, sans-serif;
-        letter-spacing: 1px;
-      }
-      *,
-      ::after,
-      ::before {
-        box-sizing: inherit;
-      }
-      .footer {
-        background: #060322;
-        padding: 3rem 1rem 6rem;
-      }
-      .container,
-      .doc-upload-warning-bar {
-        max-width: 1272px;
-        margin-left: auto;
-        margin-right: auto;
-        flex-basis: 100%;
-      }
-      .g-3,
-      .gx-3 {
-        --gutterX: 1rem !important;
-      }
-      @media screen and (max-width: 909px) {
-        .text-content {
-          font-size: 12px;
-        }
-      }
-      .row {
-        display: flex;
-        flex-wrap: wrap;
-        position: relative;
-        margin: calc(0.75rem * -1) calc(var(--gutterX, 0rem) * -0.5) 0.75rem;
-        box-sizing: border-box;
-      }
-      .row:last-child {
-        margin-bottom: calc(0.75rem * -1);
-      }
-      .footer .row,
-      .popup .row {
-        z-index: 0;
-      }
-      .background {
-        position: absolute;
-        inset: 0px;
-        height: 100%;
-        pointer-events: none;
-      }
-      .background--fullwidth {
-        width: 100vw;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .col {
-        position: relative;
-        flex: 1 0 0%;
-        padding-left: calc(var(--gutterX, 0rem) * 0.5);
-        padding-right: calc(var(--gutterX, 0rem) * 0.5);
-      }
-      .footer .col,
-      .popup .col {
-        z-index: 2;
-      }
-      .col-12 {
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+      margin: calc(0.75rem * -1) calc(var(--gutterX, 0rem) * -0.5) 0.75rem;
+      box-sizing: border-box;
+    }
+
+    .row:last-child {
+      margin-bottom: calc(0.75rem * -1);
+    }
+
+    .footer .row,
+    .popup .row {
+      z-index: 0;
+    }
+
+    .background {
+      position: absolute;
+      inset: 0px;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .background--fullwidth {
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .col {
+      position: relative;
+      flex: 1 0 0%;
+      padding-left: calc(var(--gutterX, 0rem) * 0.5);
+      padding-right: calc(var(--gutterX, 0rem) * 0.5);
+    }
+
+    .footer .col,
+    .popup .col {
+      z-index: 2;
+    }
+
+    .col-12 {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+
+    @media screen and (min-width: 910px) {
+      .col-md-2 {
         flex: 0 0 auto;
-        width: 100%;
+        width: 16.6667%;
       }
-      @media screen and (min-width: 910px) {
-        .col-md-2 {
-          flex: 0 0 auto;
-          width: 16.6667%;
-        }
-        .col-md-4 {
-          flex: 0 0 auto;
-          width: 33.3333%;
-        }
-        .col-md-8 {
-          flex: 0 0 auto;
-          width: 66.6667%;
-        }
+
+      .col-md-4 {
+        flex: 0 0 auto;
+        width: 33.3333%;
       }
-      .h-100 {
-        height: 100% !important;
+
+      .col-md-8 {
+        flex: 0 0 auto;
+        width: 66.6667%;
       }
-      .overflow-auto {
-        overflow: auto !important;
-      }
-      img {
-        border-style: none;
-      }
-      img,
-      video {
-        height: auto;
-        max-width: 100%;
-      }
-      a {
-        cursor: pointer;
-        text-decoration: none;
-      }
-      .image-list {
-        --image-list__img-width: auto;
-        --image-list__item-margin: 8px;
-        --image-list-justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: var(--image-list-justify-content);
-        align-items: center;
-        margin: calc(var(--image-list__item-margin) * -1);
-      }
-      .image-list__item {
-        margin: var(--image-list__item-margin);
-      }
-      .lazy-img {
-        opacity: 0.2 !important;
-        transition: opacity 0.25s ease-out !important;
-      }
-      img:not([src]) {
-        visibility: hidden;
-      }
-      .image-element,
-      .image-list__img {
-        display: block;
-        line-height: 0;
-      }
-      .image-list__img {
-        width: var(--image-list__img-width);
-      }
-      blockquote,
-      body,
-      dd,
-      dl,
-      dt,
-      fieldset,
-      figure,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      hr,
-      html,
-      iframe,
-      legend,
-      li,
-      ol,
-      p,
-      pre,
-      textarea,
-      ul {
-        margin: 0;
-        padding: 0;
-      }
-      table {
-        border-collapse: collapse;
-        border-spacing: 0px;
-      }
-      td,
-      th {
-        padding: 0;
-      }
-      .document-upload__remove-all,
-      .font-weight-bold {
-        font-weight: 700 !important;
-      }
-      .subtitle,
-      .title {
-        font-family: Soehne, sans-serif;
-      }
-      .subtitle.is-1,
-      .title.is-1 {
-        font-size: 28px;
-      }
-      @media screen and (min-width: 480px) {
-        .subtitle.is-2,
-        .title.is-2 {
-          font-size: 24px;
-        }
-      }
+    }
+
+    .h-100 {
+      height: 100% !important;
+    }
+
+    .overflow-auto {
+      overflow: auto !important;
+    }
+
+    img {
+      border-style: none;
+    }
+
+    img,
+    video {
+      height: auto;
+      max-width: 100%;
+    }
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .image-list {
+      --image-list__img-width: auto;
+      --image-list__item-margin: 8px;
+      --image-list-justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: var(--image-list-justify-content);
+      align-items: center;
+      margin: calc(var(--image-list__item-margin) * -1);
+    }
+
+    .image-list__item {
+      margin: var(--image-list__item-margin);
+    }
+
+    .lazy-img {
+      opacity: 0.2 !important;
+      transition: opacity 0.25s ease-out !important;
+    }
+
+    img:not([src]) {
+      visibility: hidden;
+    }
+
+    .image-element,
+    .image-list__img {
+      display: block;
+      line-height: 0;
+    }
+
+    .image-list__img {
+      width: var(--image-list__img-width);
+    }
+
+    blockquote,
+    body,
+    dd,
+    dl,
+    dt,
+    fieldset,
+    figure,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    hr,
+    html,
+    iframe,
+    legend,
+    li,
+    ol,
+    p,
+    pre,
+    textarea,
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0px;
+    }
+
+    td,
+    th {
+      padding: 0;
+    }
+
+    .document-upload__remove-all,
+    .font-weight-bold {
+      font-weight: 700 !important;
+    }
+
+    .subtitle,
+    .title {
+      font-family: Soehne, sans-serif;
+    }
+
+    .subtitle.is-1,
+    .title.is-1 {
+      font-size: 28px;
+    }
+
+    @media screen and (min-width: 480px) {
+
       .subtitle.is-2,
       .title.is-2 {
-        font-size: 20px;
+        font-size: 24px;
       }
-      span {
-        font-style: inherit;
-        font-weight: inherit;
-      }
-      .font-weight-normal {
-        font-weight: 400 !important;
-      }
-      p.is-3 {
-        font-size: 14px;
-      }
-      b,
-      strong {
-        font-weight: bolder;
-      }
-      hr {
-        border: none;
-        height: 2px;
-        margin: 1.5rem 0;
-      }
-      button,
-      hr {
-        background: 0 0;
-      }
-      p.is-5 {
-        font-size: 11px;
-      }
-      @media screen and (min-width: 910px) and (max-width: 1079px) {
-        .is-hidden-tablet-only {
-          display: none !important;
-        }
-      }
-      @media screen and (min-width: 1080px) and (max-width: 1379px) {
-        .is-hidden-desktop-only {
-          display: none !important;
-        }
-      }
-      @media screen and (min-width: 1380px) and (max-width: 1471px) {
-        .is-hidden-widescreen-only {
-          display: none !important;
-        }
-      }
-      @media screen and (min-width: 1472px) {
-        .is-hidden-fullhd {
-          display: none !important;
-        }
-      }
-    </style>
-  </head>
+    }
 
-  <body>
-    <footer class="footer">
-      <div class="container">
-        <div class="gx-3 is-hidden-mobile row" style="padding: 0px">
-          <div
-            class="background background--fullwidth"
-            style="background-repeat: repeat; background-position: center top; object-position: center top"
-          ></div>
-          <div class="col col-12 col-md-4 is-hidden-mobile">
-            <div
-              class="h-100"
-              style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top"
-            >
-              <section class="text-content">
-                <div class="">
-                  <img alt="Visa" src="https://www.betcity.nl/media/2021-04/visa.svg" style="max-width: 80px" />&nbsp; &nbsp; &nbsp;&nbsp;<img
-                    alt="MasterCard"
-                    src="https://www.betcity.nl/media/2021-04/mastercard.svg"
-                    style="max-width: 80px"
-                  />&nbsp; &nbsp; &nbsp;&nbsp;<img
-                    alt="Maestro"
-                    src="https://www.betcity.nl/media/2021-04/maestro.svg"
-                    style="max-width: 80px"
-                  />&nbsp; &nbsp; &nbsp;&nbsp;<img
-                    alt="Bank Transfer"
-                    src="https://www.betcity.nl/media/2021-04/wire-transfer.svg"
-                    style="max-width: 80px"
-                  />&nbsp; &nbsp;&nbsp;<a href="https://www.betcity.nl/speel-slimmer/betaalmogelijkheden/ideal"
-                    ><img alt="Ideal" src="https://www.betcity.nl/media/2021-04/ideal.svg" style="max-width: 80px"
-                  /></a>
-                </div>
-              </section>
-            </div>
-          </div>
-          <div class="col col-12 col-md-4 is-hidden-mobile">
-            <div
-              class="h-100"
-              style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top"
-            >
-              <div class="image-list">
-                <a href="https://www.facebook.com/BetCity.nl" target="_blank" class="image-list__item"
-                  ><img alt="" data-src="https://www.betcity.nl/media/2022-08/betcity-social-icons-facebook-3.svg" class="image-list__img lazy-img"
-                /></a>
-                <a href="https://twitter.com/betcity_nl" target="_blank" class="image-list__item"
-                  ><img alt="" data-src="https://www.betcity.nl/media/2022-08/betcity-social-icons-twitter-3.svg" class="image-list__img lazy-img"
-                /></a>
-                <a href="https://www.instagram.com/betcity.nl/" target="_blank" class="image-list__item"
-                  ><img alt="" data-src="https://www.betcity.nl/media/2022-08/betcity-social-icons-instagram-3.svg" class="image-list__img lazy-img"
-                /></a>
-                <a href="https://www.linkedin.com/company/betcitynl" target="_blank" class="image-list__item"
-                  ><img alt="" data-src="https://www.betcity.nl/media/2022-08/betcity-social-icons-linkedin-3.svg" class="image-list__img lazy-img"
-                /></a>
-                <a href="https://www.youtube.com/channel/UCbLv1pu2mJx0gEtRYoCiSmg" target="_blank" class="image-list__item"
-                  ><img alt="" data-src="https://www.betcity.nl/media/2022-08/betcity-social-icons-youtube-3.svg" class="image-list__img lazy-img"
-                /></a>
+    .subtitle.is-2,
+    .title.is-2 {
+      font-size: 20px;
+    }
+
+    span {
+      font-style: inherit;
+      font-weight: inherit;
+    }
+
+    .font-weight-normal {
+      font-weight: 400 !important;
+    }
+
+    p.is-3 {
+      font-size: 14px;
+    }
+
+    b,
+    strong {
+      font-weight: bolder;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      margin: 1.5rem 0;
+    }
+
+    button,
+    hr {
+      background: 0 0;
+    }
+
+    p.is-5 {
+      font-size: 11px;
+    }
+
+    @media screen and (min-width: 910px) and (max-width: 1079px) {
+      .is-hidden-tablet-only {
+        display: none !important;
+      }
+    }
+
+    @media screen and (min-width: 1080px) and (max-width: 1379px) {
+      .is-hidden-desktop-only {
+        display: none !important;
+      }
+    }
+
+    @media screen and (min-width: 1380px) and (max-width: 1471px) {
+      .is-hidden-widescreen-only {
+        display: none !important;
+      }
+    }
+
+    @media screen and (min-width: 1472px) {
+      .is-hidden-fullhd {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <footer class="footer">
+    <div class="container">
+      <div class="gx-3 is-hidden-mobile row" style="padding: 0px">
+        <div class="background background--fullwidth"
+          style="background-repeat: repeat; background-position: center top; object-position: center top"></div>
+        <div class="col col-12 col-md-4 is-hidden-mobile">
+          <div class="h-100"
+            style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top">
+            <section class="text-content">
+              <div class="">
+                <img alt="Visa" src="https://www.betcity.nl/media/2021-04/visa.svg" style="max-width: 80px" />&nbsp;
+                &nbsp; &nbsp;&nbsp;<img alt="MasterCard" src="https://www.betcity.nl/media/2021-04/mastercard.svg"
+                  style="max-width: 80px" />&nbsp; &nbsp; &nbsp;&nbsp;<img alt="Maestro"
+                  src="https://www.betcity.nl/media/2021-04/maestro.svg" style="max-width: 80px" />&nbsp; &nbsp;
+                &nbsp;&nbsp;<img alt="Bank Transfer" src="https://www.betcity.nl/media/2021-04/wire-transfer.svg"
+                  style="max-width: 80px" />&nbsp; &nbsp;&nbsp;<a
+                  href="https://www.betcity.nl/speel-slimmer/betaalmogelijkheden/ideal"><img alt="Ideal"
+                    src="https://www.betcity.nl/media/2021-04/ideal.svg" style="max-width: 80px" /></a>
               </div>
+            </section>
+          </div>
+        </div>
+        <div class="col col-12 col-md-4 is-hidden-mobile">
+          <div class="h-100"
+            style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top">
+            <div class="image-list">
+              <a href="https://www.facebook.com/BetCity.nl" target="_blank" class="image-list__item"><img alt=""
+                  data-src="https://www.betcity.nl/media/2022-08/betcity-social-icons-facebook-3.svg"
+                  class="image-list__img lazy-img" /></a>
+              <a href="https://twitter.com/betcity_nl" target="_blank" class="image-list__item"><img alt=""
+                  data-src="https://www.betcity.nl/media/2022-08/betcity-social-icons-twitter-3.svg"
+                  class="image-list__img lazy-img" /></a>
+              <a href="https://www.instagram.com/betcity.nl/" target="_blank" class="image-list__item"><img alt=""
+                  data-src="https://www.betcity.nl/media/2022-08/betcity-social-icons-instagram-3.svg"
+                  class="image-list__img lazy-img" /></a>
+              <a href="https://www.linkedin.com/company/betcitynl" target="_blank" class="image-list__item"><img alt=""
+                  data-src="https://www.betcity.nl/media/2022-08/betcity-social-icons-linkedin-3.svg"
+                  class="image-list__img lazy-img" /></a>
+              <a href="https://www.youtube.com/channel/UCbLv1pu2mJx0gEtRYoCiSmg" target="_blank"
+                class="image-list__item"><img alt=""
+                  data-src="https://www.betcity.nl/media/2022-08/betcity-social-icons-youtube-3.svg"
+                  class="image-list__img lazy-img" /></a>
             </div>
           </div>
-          <div class="col col-12 col-md-4 is-hidden-mobile">
-            <div
-              class="h-100"
-              style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top"
-            >
-              <div class="image-list">
-                <a href="https://www.no-ga.nl/" target="_blank" class="image-list__item"
-                  ><img alt="" data-src="https://www.betcity.nl/media/2022-08/noga-35-px-hoog-N3n-medium.jpeg" class="image-list__img lazy-img"
-                /></a>
-                <a href="https://ibia.bet/" target="_blank" class="image-list__item"
-                  ><img alt="" data-src="https://www.betcity.nl/media/2022-08/ibia-35-px-hoog-504-medium.jpeg" class="image-list__img lazy-img"
-                /></a>
-                <a
-                  href="https://kansspelautoriteit.nl/veilig-spelen/veilig-online-gokken/kansspelwijzer-online-gokken/@11392/betent/#blok-11577"
-                  target="_blank"
-                  class="image-list__item"
-                  ><img alt="" data-src="https://www.betcity.nl/media/2022-08/vergunning-35-px-hoog-rv6-medium.jpeg" class="image-list__img lazy-img"
-                /></a>
-              </div>
+        </div>
+        <div class="col col-12 col-md-4 is-hidden-mobile">
+          <div class="h-100"
+            style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top">
+            <div class="image-list">
+              <a href="https://www.no-ga.nl/" target="_blank" class="image-list__item"><img alt=""
+                  data-src="https://www.betcity.nl/media/2022-08/noga-35-px-hoog-N3n-medium.jpeg"
+                  class="image-list__img lazy-img" /></a>
+              <a href="https://ibia.bet/" target="_blank" class="image-list__item"><img alt=""
+                  data-src="https://www.betcity.nl/media/2022-08/ibia-35-px-hoog-504-medium.jpeg"
+                  class="image-list__img lazy-img" /></a>
+              <a href="https://kansspelautoriteit.nl/veilig-spelen/veilig-online-gokken/kansspelwijzer-online-gokken/@11392/betent/#blok-11577"
+                target="_blank" class="image-list__item"><img alt=""
+                  data-src="https://www.betcity.nl/media/2022-08/vergunning-35-px-hoog-rv6-medium.jpeg"
+                  class="image-list__img lazy-img" /></a>
             </div>
           </div>
-          <div class="col col-12">
-            <div
-              class="h-100"
-              style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top"
-            >
-              <section class="text-content">
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-              </section>
-              <section class="text-content">
-                <div class="" style="display: flex; flex-direction: row; font-size: 14px">
-                  <div style="width: 23.847%">
-                    <div class="font-weight-bold is-1 is-2 subtitle title" style="text-align: left; color: rgb(8, 11, 20)">
-                      <span style="color: rgb(255, 255, 255)">BETCITY SPORTSBOOK</span>
-                    </div>
-                    <ul>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/sportsbook/eredivisie" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Wedden op Eredivisie</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/sportsbook/champions-league" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Wedden op Champions League</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/sportsbook/europa-league" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Wedden op Europa League</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/sportsbook/conference-league" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Wedden op Conference League</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/sportsbook/tennis" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Wedden op Tennis</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/sportsbook/darts" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Wedden op Darts</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/sportsbook/ajax" style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op Ajax</a></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/sportsbook/psv" style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op PSV</a></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/sportsbook/feyenoord" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Wedden op Feyenoord</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/sportsbook/premier-league" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Wedden op Premier League</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <a href="https://www.betcity.nl/sportsbook/manchester-united"
-                          ><span style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op Manchester United</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="https://www.betcity.nl/sportsbook/nba"
-                          ><span style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op NBA</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="https://www.betcity.nl/sportsbook/keuken-kampioen-divisie"
-                          ><span style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op Keuken Kampioen Divisie</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="https://www.betcity.nl/sportsbook/wk-2022" style="color: rgb(255, 255, 255)"
-                          ><span style="opacity: 0.72">Wedden op WK 2022</span></a
-                        >
-                      </li>
-                      <li>
-                        <div class="">&nbsp;</div>
-                      </li>
-                    </ul>
+        </div>
+        <div class="col col-12">
+          <div class="h-100"
+            style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top">
+            <section class="text-content">
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+            </section>
+            <section class="text-content">
+              <div class="" style="display: flex; flex-direction: row; font-size: 14px">
+                <div style="width: 23.847%">
+                  <div class="font-weight-bold is-1 is-2 subtitle title"
+                    style="text-align: left; color: rgb(8, 11, 20)">
+                    <span style="color: rgb(255, 255, 255)">BETCITY SPORTSBOOK</span>
                   </div>
-                  <div style="width: 20.7593%">
-                    <div class="font-weight-bold is-1 is-2 subtitle title" style="text-align: left; color: rgb(8, 11, 20)">
-                      <span style="color: rgb(255, 255, 255)">POPULAIRE SPELLEN</span>
-                    </div>
-                    <ul>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/live-casino/evolution/lightning-roulette" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Lightning Roulette</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/casino/pragmatic-play/sweet-bonanza" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Sweet Bonanza</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/casino/greentube/book-of-ra" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Book of Ra</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/casino/netent/starburst" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Starburst</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/live-casino/evolution/crazy-time" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Crazy Time</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/casino/pragmatic-play/big-bass-bonanza" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Big Bass Bonanza</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/casino/pragmatic-play/gates-of-olympus" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Gates of Olympus</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a
-                            href="https://www.betcity.nl/casino/pragmatic-play/buffalo-king-megaways"
-                            title="Buffalo King Megaways"
-                            style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Buffalo King Megaways</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a
-                            href="https://www.betcity.nl/casino/stakelogic/runner-runner-megaways"
-                            title="Runner Runner Megaways"
-                            style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Runner Runner Megaways</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a
-                            href="https://www.betcity.nl/live-casino/stakelogic/super-stake-roulette"
-                            style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Super Stake Roulette</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/casino/stakelogic/multi-player-4-player" style="color: rgb(255, 255, 255)"
-                            ><span style="opacity: 0.72">Multi Player 4 Player</span></a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <a href="https://www.betcity.nl/casino/stakelogic/multi-wild-player"
-                          ><span style="color: rgb(255, 255, 255)"><span style="opacity: 0.72">Multi Wild Player</span></span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="https://www.betcity.nl/live-casino/stakelogic/super-roulette-5000x"
-                          ><span style="color: rgb(255, 255, 255)"><span style="opacity: 0.72">Super Stake Roulette 5000x</span></span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="https://www.betcity.nl/casino/netent/superstars"
-                          ><span style="color: rgb(255, 255, 255)"><span style="opacity: 0.72">Superstars</span></span></a
-                        >
-                      </li>
-                      <li>
-                        <div class="">&nbsp;</div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div style="width: 19.8055%">
-                    <div class="font-weight-bold is-1 is-2 subtitle title" style="text-align: left; color: rgb(8, 11, 20)">
-                      <span style="color: rgb(255, 255, 255)">CASINO</span>
-                    </div>
-                    <ul>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/live-casino/roulette" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Live roulette</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/live-casino/blackjack" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Live blackjack</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/live-casino/baccarat" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Live baccarat</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/live-casino/poker" style="color: rgb(255, 255, 255); opacity: 0.72">Live poker</a></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/live-casino" style="color: rgb(255, 255, 255); opacity: 0.72">Live casino</a></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/casino" style="color: rgb(255, 255, 255); opacity: 0.72">Online casino</a></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/casino/gokkasten" style="color: rgb(255, 255, 255); opacity: 0.72">Gokkasten</a></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a
-                            href="https://www.betcity.nl/speel-slimmer/strategieen/online-gokken"
-                            rel="noopener"
-                            target="_blank"
-                            style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Online gokken</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <div class="">&nbsp;</div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div style="width: 19.8055%">
-                    <div class="font-weight-bold is-1 is-2 subtitle title" style="text-align: left; color: rgb(8, 11, 20)">
-                      <span style="color: rgb(255, 255, 255)">BETROUWBAAR SPELEN</span>
-                    </div>
-                    <ul>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a
-                            href="https://www.betcity.nl/algemene-voorwaarden"
-                            rel="noopener"
-                            target="_blank"
-                            style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Algemene voorwaarden</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a
-                            href="https://www.betcity.nl/bonus-voorwaarden"
-                            rel="noopener"
-                            target="_blank"
-                            style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Bonusvoorwaarden</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/cookies" rel="noopener" target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Cookiestatement</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a
-                            href="https://www.betcity.nl/privacyverklaring"
-                            rel="noopener"
-                            target="_blank"
-                            style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Privacyverklaring</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a
-                            href="https://www.betcity.nl/speel-verantwoord"
-                            rel="noopener"
-                            target="_blank"
-                            style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Speel Verantwoord</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <div class="">&nbsp;</div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div style="width: 19.7059%">
-                    <div class="font-weight-bold is-1 is-2 subtitle title" style="text-align: left; color: rgb(8, 11, 20)">
-                      <span style="color: rgb(255, 255, 255)">MEER BETCITY</span>
-                    </div>
-                    <ul>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/complaint" rel="noopener" target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Klachtenregeling</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://help.betcity.nl/hc/nl" rel="noopener" target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Veelgestelde vragen</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/contact-us" rel="noopener" target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Contact</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/over-ons" rel="noopener" target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Over ons</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a
-                            href="https://www.betcity.nl/speel-slimmer"
-                            rel="noopener"
-                            target="_blank"
-                            style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Speel Slimmer</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span style="color: rgb(255, 255, 255)"
-                          ><a href="https://www.betcity.nl/partners" rel="noopener" target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72"
-                            >Partners</a
-                          ></span
-                        >
-                      </li>
-                      <li>
-                        <span
-                          ><a href="https://meer.betcity.nl/wk-2022" style="color: rgb(255, 255, 255); opacity: 0.72">Speelschema WK 2022</a></span
-                        >
-                      </li>
-                      <li>
-                        <a href="https://meer.betcity.nl" rel="noopener" target="_blank"
-                          ><span style="color: rgb(255, 255, 255); opacity: 0.72">Meer BetCity</span></a
-                        >
-                      </li>
-                      <li>
-                        <div class="">&nbsp;</div>
-                      </li>
-                    </ul>
-                  </div>
-                  <p>&nbsp;</p>
+                  <ul class="list-unstyled">
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/sportsbook/eredivisie"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op Eredivisie</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a
+                          href="https://www.betcity.nl/sportsbook/champions-league"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op Champions League</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/sportsbook/europa-league"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op Europa League</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a
+                          href="https://www.betcity.nl/sportsbook/conference-league"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op Conference League</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/sportsbook/tennis"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op Tennis</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/sportsbook/darts"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op Darts</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/sportsbook/ajax"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op Ajax</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/sportsbook/psv"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op PSV</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/sportsbook/feyenoord"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op Feyenoord</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/sportsbook/premier-league"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op Premier League</a></span>
+                    </li>
+                    <li>
+                      <a href="https://www.betcity.nl/sportsbook/manchester-united"><span
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op Manchester United</span></a>
+                    </li>
+                    <li>
+                      <a href="https://www.betcity.nl/sportsbook/nba"><span
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op NBA</span></a>
+                    </li>
+                    <li>
+                      <a href="https://www.betcity.nl/sportsbook/keuken-kampioen-divisie"><span
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Wedden op Keuken Kampioen Divisie</span></a>
+                    </li>
+                    <li>
+                      <a href="https://www.betcity.nl/sportsbook/wk-2022" style="color: rgb(255, 255, 255)"><span
+                          style="opacity: 0.72">Wedden op WK 2022</span></a>
+                    </li>
+                    <li>
+                      <div class="">&nbsp;</div>
+                    </li>
+                  </ul>
                 </div>
-              </section>
-              <section class="text-content">
-                <div
-                  class="font-weight-normal title"
-                  style="
+                <div style="width: 20.7593%">
+                  <div class="font-weight-bold is-1 is-2 subtitle title"
+                    style="text-align: left; color: rgb(8, 11, 20)">
+                    <span style="color: rgb(255, 255, 255)">POPULAIRE SPELLEN</span>
+                  </div>
+                  <ul class="list-unstyled">
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a
+                          href="https://www.betcity.nl/live-casino/evolution/lightning-roulette"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Lightning Roulette</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a
+                          href="https://www.betcity.nl/casino/pragmatic-play/sweet-bonanza"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Sweet Bonanza</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a
+                          href="https://www.betcity.nl/casino/greentube/book-of-ra"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Book of Ra</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/casino/netent/starburst"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Starburst</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a
+                          href="https://www.betcity.nl/live-casino/evolution/crazy-time"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Crazy Time</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a
+                          href="https://www.betcity.nl/casino/pragmatic-play/big-bass-bonanza"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Big Bass Bonanza</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a
+                          href="https://www.betcity.nl/casino/pragmatic-play/gates-of-olympus"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Gates of Olympus</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a
+                          href="https://www.betcity.nl/casino/pragmatic-play/buffalo-king-megaways"
+                          title="Buffalo King Megaways" style="color: rgb(255, 255, 255); opacity: 0.72">Buffalo King
+                          Megaways</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a
+                          href="https://www.betcity.nl/casino/stakelogic/runner-runner-megaways"
+                          title="Runner Runner Megaways" style="color: rgb(255, 255, 255); opacity: 0.72">Runner Runner
+                          Megaways</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a
+                          href="https://www.betcity.nl/live-casino/stakelogic/super-stake-roulette"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Super Stake Roulette</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a
+                          href="https://www.betcity.nl/casino/stakelogic/multi-player-4-player"
+                          style="color: rgb(255, 255, 255)"><span style="opacity: 0.72">Multi Player 4
+                            Player</span></a></span>
+                    </li>
+                    <li>
+                      <a href="https://www.betcity.nl/casino/stakelogic/multi-wild-player"><span
+                          style="color: rgb(255, 255, 255)"><span style="opacity: 0.72">Multi Wild
+                            Player</span></span></a>
+                    </li>
+                    <li>
+                      <a href="https://www.betcity.nl/live-casino/stakelogic/super-roulette-5000x"><span
+                          style="color: rgb(255, 255, 255)"><span style="opacity: 0.72">Super Stake Roulette
+                            5000x</span></span></a>
+                    </li>
+                    <li>
+                      <a href="https://www.betcity.nl/casino/netent/superstars"><span
+                          style="color: rgb(255, 255, 255)"><span style="opacity: 0.72">Superstars</span></span></a>
+                    </li>
+                    <li>
+                      <div class="">&nbsp;</div>
+                    </li>
+                  </ul>
+                </div>
+                <div style="width: 19.8055%">
+                  <div class="font-weight-bold is-1 is-2 subtitle title"
+                    style="text-align: left; color: rgb(8, 11, 20)">
+                    <span style="color: rgb(255, 255, 255)">CASINO</span>
+                  </div>
+                  <ul class="list-unstyled">
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/live-casino/roulette"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Live roulette</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/live-casino/blackjack"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Live blackjack</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/live-casino/baccarat"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Live baccarat</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/live-casino/poker"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Live poker</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/live-casino"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Live casino</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/casino"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Online casino</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/casino/gokkasten"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Gokkasten</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a
+                          href="https://www.betcity.nl/speel-slimmer/strategieen/online-gokken" rel="noopener"
+                          target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72">Online gokken</a></span>
+                    </li>
+                    <li>
+                      <div class="">&nbsp;</div>
+                    </li>
+                  </ul>
+                </div>
+                <div style="width: 19.8055%">
+                  <div class="font-weight-bold is-1 is-2 subtitle title"
+                    style="text-align: left; color: rgb(8, 11, 20)">
+                    <span style="color: rgb(255, 255, 255)">BETROUWBAAR SPELEN</span>
+                  </div>
+                  <ul class="list-unstyled">
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/algemene-voorwaarden"
+                          rel="noopener" target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72">Algemene
+                          voorwaarden</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/bonus-voorwaarden"
+                          rel="noopener" target="_blank"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Bonusvoorwaarden</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/cookies" rel="noopener"
+                          target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72">Cookiestatement</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/privacyverklaring"
+                          rel="noopener" target="_blank"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Privacyverklaring</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/speel-verantwoord"
+                          rel="noopener" target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72">Speel
+                          Verantwoord</a></span>
+                    </li>
+                    <li>
+                      <div class="">&nbsp;</div>
+                    </li>
+                  </ul>
+                </div>
+                <div style="width: 19.7059%">
+                  <div class="font-weight-bold is-1 is-2 subtitle title"
+                    style="text-align: left; color: rgb(8, 11, 20)">
+                    <span style="color: rgb(255, 255, 255)">MEER BETCITY</span>
+                  </div>
+                  <ul class="list-unstyled">
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/complaint" rel="noopener"
+                          target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72">Klachtenregeling</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://help.betcity.nl/hc/nl" rel="noopener"
+                          target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72">Veelgestelde
+                          vragen</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/contact-us" rel="noopener"
+                          target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72">Contact</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/over-ons" rel="noopener"
+                          target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72">Over ons</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/speel-slimmer"
+                          rel="noopener" target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72">Speel
+                          Slimmer</a></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(255, 255, 255)"><a href="https://www.betcity.nl/partners" rel="noopener"
+                          target="_blank" style="color: rgb(255, 255, 255); opacity: 0.72">Partners</a></span>
+                    </li>
+                    <li>
+                      <span><a href="https://meer.betcity.nl/wk-2022"
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Speelschema WK 2022</a></span>
+                    </li>
+                    <li>
+                      <a href="https://meer.betcity.nl" rel="noopener" target="_blank"><span
+                          style="color: rgb(255, 255, 255); opacity: 0.72">Meer BetCity</span></a>
+                    </li>
+                    <li>
+                      <div class="">&nbsp;</div>
+                    </li>
+                  </ul>
+                </div>
+                <p>&nbsp;</p>
+              </div>
+            </section>
+            <section class="text-content">
+              <div class="font-weight-normal title" style="
                     padding: 15px 0px;
                     border-top: 1px solid rgb(46, 43, 69);
                     border-bottom: 1px solid rgb(46, 43, 69);
                     text-align: center;
                     color: rgb(255, 255, 255);
-                  "
-                >
-                  <span style="color: rgb(255, 255, 255); font-size: 14px">Wat kost gokken jou? Stop op tijd. 18+</span>
-                </div>
-              </section>
-            </div>
+                  ">
+                <span style="color: rgb(255, 255, 255); font-size: 14px">Wat kost gokken jou? Stop op tijd. 18+</span>
+              </div>
+            </section>
           </div>
-          <div class="col col-12">
-            <div
-              class="h-100"
-              style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top"
-            >
-              <section class="text-content">
-                <div class="">
-                  <p class="is-3" style="text-align: center">&nbsp;</p>
-                  <p class="is-3" style="text-align: center">
-                    <strong><span style="color: rgb(255, 255, 255)">BetCity.nl is officiële partner van:</span></strong>
-                  </p>
-                  <p class="is-3" style="text-align: center">&nbsp;</p>
-                </div>
-              </section>
-              <div class="image-list" style="--image-list__item-margin: 10px">
-                <a href="https://www.betcity.nl/fortuna-sittard" target="" class="image-list__item"
-                  ><img
-                    alt="Fortuna Sittard"
-                    data-src="https://www.betcity.nl/media/2022-10/fortuna-sittard-1.svg"
-                    title="Fortuna Sittard"
-                    class="image-list__img lazy-img"
-                /></a>
-                <a href="https://www.betcity.nl/fc-volendam" target="" class="image-list__item"
-                  ><img
-                    alt="FC Volendam"
-                    data-src="https://www.betcity.nl/media/2022-10/fc-volendam.svg"
-                    title="FC Volendam"
-                    class="image-list__img lazy-img"
-                /></a>
-                <a href="https://www.betcity.nl/vitesse" target="" class="image-list__item"
-                  ><img alt="Vitesse" data-src="https://www.betcity.nl/media/2022-10/vitesse.svg" title="Vitesse" class="image-list__img lazy-img"
-                /></a>
-                <a href="https://www.betcity.nl/fc-eindhoven/shirtsponsor" target="" class="image-list__item"
-                  ><img
-                    alt="FC Eindhoven"
-                    data-src="https://www.betcity.nl/media/2022-10/fc-eindhoven.svg"
-                    title="FC Eindhoven"
-                    class="image-list__img lazy-img"
-                /></a>
-                <a href="https://www.betcity.nl/vvv-venlo/shirtsponsor" target="" class="image-list__item"
-                  ><img
-                    alt="VVV Venlo"
-                    data-src="https://www.betcity.nl/media/2022-10/vvv-venlo.svg"
-                    title="VVV Venlo"
-                    class="image-list__img lazy-img"
-                /></a>
-                <div class="image-list__item">
-                  <img
-                    alt="Helmond Sport"
-                    data-src="https://www.betcity.nl/media/2022-10/fc-helmond-1.svg"
-                    title="Helmond Sport"
-                    class="image-list__img lazy-img"
-                  />
-                </div>
-                <div class="image-list__item">
-                  <img
-                    alt="FC Den Bosch"
-                    data-src="https://www.betcity.nl/media/2022-10/footer-logos-fc-den-bosch.svg"
-                    title="FC Den Bosch"
-                    class="image-list__img lazy-img"
-                  />
-                </div>
-                <div class="image-list__item">
-                  <img
-                    alt="PEC Zwolle"
-                    data-src="https://www.betcity.nl/media/2022-10/pec-zwolle.svg"
-                    title="PEC Zwolle"
-                    class="image-list__img lazy-img"
-                  />
-                </div>
-                <a href="https://www.betcity.nl/fih/official-betting-partner" target="" class="image-list__item"
-                  ><img alt="FIH" data-src="https://www.betcity.nl/media/2022-10/fih.svg" title="FIH" class="image-list__img lazy-img"
-                /></a>
-                <div class="image-list__item">
-                  <img
-                    alt="Green Park"
-                    data-src="https://www.betcity.nl/media/2022-10/footer-logos-handbal-aalsmeer.svg"
-                    title="Green Park"
-                    class="image-list__img lazy-img"
-                  />
-                </div>
-                <div class="image-list__item">
-                  <img alt="NKVQ" data-src="https://www.betcity.nl/media/2022-10/nkvq.svg" title="NKVQ" class="image-list__img lazy-img" />
-                </div>
-                <div class="image-list__item">
-                  <img
-                    alt="Vierdaagsefeesten"
-                    data-src="https://www.betcity.nl/media/2022-10/footer-logos-4daagse.svg"
-                    title="Vierdaagsefeesten"
-                    class="image-list__img lazy-img"
-                  />
-                </div>
-                <div class="image-list__item">
-                  <img
-                    alt="FC Emmen"
-                    data-src="https://www.betcity.nl/media/2022-10/fc-emmen.svg"
-                    title="FC Emmen"
-                    class="image-list__img lazy-img"
-                  />
-                </div>
+        </div>
+        <div class="col col-12">
+          <div class="h-100"
+            style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top">
+            <section class="text-content">
+              <div class="">
+                <p class="is-3" style="text-align: center">&nbsp;</p>
+                <p class="is-3" style="text-align: center">
+                  <strong><span style="color: rgb(255, 255, 255)">BetCity.nl is officiële partner van:</span></strong>
+                </p>
+                <p class="is-3" style="text-align: center">&nbsp;</p>
+              </div>
+            </section>
+            <div class="image-list" style="--image-list__item-margin: 10px">
+              <a href="https://www.betcity.nl/fortuna-sittard" target="" class="image-list__item"><img
+                  alt="Fortuna Sittard" data-src="https://www.betcity.nl/media/2022-10/fortuna-sittard-1.svg"
+                  title="Fortuna Sittard" class="image-list__img lazy-img" /></a>
+              <a href="https://www.betcity.nl/fc-volendam" target="" class="image-list__item"><img alt="FC Volendam"
+                  data-src="https://www.betcity.nl/media/2022-10/fc-volendam.svg" title="FC Volendam"
+                  class="image-list__img lazy-img" /></a>
+              <a href="https://www.betcity.nl/vitesse" target="" class="image-list__item"><img alt="Vitesse"
+                  data-src="https://www.betcity.nl/media/2022-10/vitesse.svg" title="Vitesse"
+                  class="image-list__img lazy-img" /></a>
+              <a href="https://www.betcity.nl/fc-eindhoven/shirtsponsor" target="" class="image-list__item"><img
+                  alt="FC Eindhoven" data-src="https://www.betcity.nl/media/2022-10/fc-eindhoven.svg"
+                  title="FC Eindhoven" class="image-list__img lazy-img" /></a>
+              <a href="https://www.betcity.nl/vvv-venlo/shirtsponsor" target="" class="image-list__item"><img
+                  alt="VVV Venlo" data-src="https://www.betcity.nl/media/2022-10/vvv-venlo.svg" title="VVV Venlo"
+                  class="image-list__img lazy-img" /></a>
+              <div class="image-list__item">
+                <img alt="Helmond Sport" data-src="https://www.betcity.nl/media/2022-10/fc-helmond-1.svg"
+                  title="Helmond Sport" class="image-list__img lazy-img" />
+              </div>
+              <div class="image-list__item">
+                <img alt="FC Den Bosch" data-src="https://www.betcity.nl/media/2022-10/footer-logos-fc-den-bosch.svg"
+                  title="FC Den Bosch" class="image-list__img lazy-img" />
+              </div>
+              <div class="image-list__item">
+                <img alt="PEC Zwolle" data-src="https://www.betcity.nl/media/2022-10/pec-zwolle.svg" title="PEC Zwolle"
+                  class="image-list__img lazy-img" />
+              </div>
+              <a href="https://www.betcity.nl/fih/official-betting-partner" target="" class="image-list__item"><img
+                  alt="FIH" data-src="https://www.betcity.nl/media/2022-10/fih.svg" title="FIH"
+                  class="image-list__img lazy-img" /></a>
+              <div class="image-list__item">
+                <img alt="Green Park" data-src="https://www.betcity.nl/media/2022-10/footer-logos-handbal-aalsmeer.svg"
+                  title="Green Park" class="image-list__img lazy-img" />
+              </div>
+              <div class="image-list__item">
+                <img alt="NKVQ" data-src="https://www.betcity.nl/media/2022-10/nkvq.svg" title="NKVQ"
+                  class="image-list__img lazy-img" />
+              </div>
+              <div class="image-list__item">
+                <img alt="Vierdaagsefeesten" data-src="https://www.betcity.nl/media/2022-10/footer-logos-4daagse.svg"
+                  title="Vierdaagsefeesten" class="image-list__img lazy-img" />
+              </div>
+              <div class="image-list__item">
+                <img alt="FC Emmen" data-src="https://www.betcity.nl/media/2022-10/fc-emmen.svg" title="FC Emmen"
+                  class="image-list__img lazy-img" />
               </div>
             </div>
           </div>
-          <div class="col col-12 col-md-2 is-hidden-mobile">
-            <div
-              class="h-100"
-              style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top"
-            >
-              <hr width="100%" style="border-top-width: 0px; border-top-style: solid; background: transparent; margin-right: auto" />
-            </div>
+        </div>
+        <div class="col col-12 col-md-2 is-hidden-mobile">
+          <div class="h-100"
+            style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top">
+            <hr width="100%"
+              style="border-top-width: 0px; border-top-style: solid; background: transparent; margin-right: auto" />
           </div>
-          <div class="col col-12 col-md-8">
-            <div
-              class="h-100"
-              style="
+        </div>
+        <div class="col col-12 col-md-8">
+          <div class="h-100" style="
                 margin-top: 25px;
                 margin-bottom: 25px;
                 padding: 0px;
@@ -870,67 +734,52 @@
                 background-repeat: repeat;
                 background-position: center top;
                 object-position: center top;
-              "
-            >
-              <section class="text-content">
-                <p class="is-5" style="text-align: center">
-                  <span style="color: rgb(255, 255, 255)"
-                    ><span data-contrast="none" lang="NL-NL" class="BCX0 SCXW232286443 TextRun"
-                      ><span class="BCX0 NormalTextRun SCXW232286443" style="color: rgb(139, 139, 139)">Betent</span
-                      ><span class="BCX0 NormalTextRun SCXW232286443"
-                        ><span style="color: rgb(139, 139, 139)"
-                          >&nbsp;B.V., gevestigd en kantoorhoudende aan Johan Cruijff Boulevard 61, 1101 DL te Amsterdam, beschikt over een vergunning
-                          tot het op afstand organiseren van casinospelen en weddenschappen. De vergunning met kenmerk:</span
-                        ><span style="color: rgb(0, 109, 208)"
-                          ><a
-                            href="https://kansspelautoriteit.nl/veilig-spelen/veilig-online-gokken/kansspelwijzer-online-gokken/@11392/betent/"
-                            rel="noopener"
-                            target="_blank"
-                            title="KSA  Gegevens vergunninghouder"
-                            style="color: rgb(0, 109, 208)"
-                            >1712/01.247.822</a
-                          ></span
-                        ><a
+              ">
+            <section class="text-content">
+              <p class="is-5" style="text-align: center">
+                <span style="color: rgb(255, 255, 255)"><span data-contrast="none" lang="NL-NL"
+                    class="BCX0 SCXW232286443 TextRun"><span class="BCX0 NormalTextRun SCXW232286443"
+                      style="color: rgb(139, 139, 139)">Betent</span><span
+                      class="BCX0 NormalTextRun SCXW232286443"><span style="color: rgb(139, 139, 139)">&nbsp;B.V.,
+                        gevestigd en kantoorhoudende aan Johan Cruijff Boulevard 61, 1101 DL te Amsterdam, beschikt over
+                        een vergunning
+                        tot het op afstand organiseren van casinospelen en weddenschappen. De vergunning met
+                        kenmerk:</span><span style="color: rgb(0, 109, 208)"><a
                           href="https://kansspelautoriteit.nl/veilig-spelen/veilig-online-gokken/kansspelwijzer-online-gokken/@11392/betent/"
-                          rel="noopener"
-                          target="_blank"
-                          title="KSA  Gegevens vergunninghouder"
-                          style="color: rgb(255, 255, 255)"
-                        ></a></span></span
-                    ><span data-contrast="none" lang="NL-NL" class="BCX0 SCXW232286443 TextRun"
-                      ><span class="BCX0 NormalTextRun SCXW232286443"
-                        >&nbsp;<span style="color: rgb(139, 139, 139)">is verleend door de Kansspelautoriteit op 29 september 2021</span></span
-                      ></span
-                    ></span
-                  ><span style="color: rgb(255, 255, 255)"
-                    ><span data-ccp-props="{}" class="BCX0 EOP SCXW232286443" style="color: rgb(139, 139, 139)">.</span></span
-                  >
-                </p>
-              </section>
-            </div>
+                          rel="noopener" target="_blank" title="KSA  Gegevens vergunninghouder"
+                          style="color: rgb(0, 109, 208)">1712/01.247.822</a></span><a
+                        href="https://kansspelautoriteit.nl/veilig-spelen/veilig-online-gokken/kansspelwijzer-online-gokken/@11392/betent/"
+                        rel="noopener" target="_blank" title="KSA  Gegevens vergunninghouder"
+                        style="color: rgb(255, 255, 255)"></a></span></span><span data-contrast="none" lang="NL-NL"
+                    class="BCX0 SCXW232286443 TextRun"><span class="BCX0 NormalTextRun SCXW232286443">&nbsp;<span
+                        style="color: rgb(139, 139, 139)">is verleend door de Kansspelautoriteit op 29 september
+                        2021</span></span></span></span><span style="color: rgb(255, 255, 255)"><span
+                    data-ccp-props="{}" class="BCX0 EOP SCXW232286443" style="color: rgb(139, 139, 139)">.</span></span>
+              </p>
+            </section>
           </div>
-          <div class="col col-12 col-md-2 is-hidden-mobile">
-            <div
-              class="h-100"
-              style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top"
-            >
-              <hr width="100%" style="border-top-width: 0px; border-top-style: solid; background: transparent; margin-right: auto" />
-            </div>
+        </div>
+        <div class="col col-12 col-md-2 is-hidden-mobile">
+          <div class="h-100"
+            style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top">
+            <hr width="100%"
+              style="border-top-width: 0px; border-top-style: solid; background: transparent; margin-right: auto" />
           </div>
-          <div class="col col-12">
-            <div
-              class="h-100"
-              style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top"
-            >
-              <section class="text-content">
-                <p class="is-3" style="text-align: center">
-                  <span style="color: rgb(255, 255, 255)">© Betent B.V. 2022 | BetCity.nl is een handelsnaam van Betent B.V.</span>
-                </p>
-              </section>
-            </div>
+        </div>
+        <div class="col col-12">
+          <div class="h-100"
+            style="padding: 0px; background-size: auto; background-repeat: repeat; background-position: center top; object-position: center top">
+            <section class="text-content">
+              <p class="is-3" style="text-align: center">
+                <span style="color: rgb(255, 255, 255)">© Betent B.V. 2022 | BetCity.nl is een handelsnaam van Betent
+                  B.V.</span>
+              </p>
+            </section>
           </div>
         </div>
       </div>
-    </footer>
-  </body>
+    </div>
+  </footer>
+</body>
+
 </html>
